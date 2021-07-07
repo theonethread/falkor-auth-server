@@ -1,0 +1,49 @@
+{
+  "name": "@falkor/falkor-auth-server",
+  "version": "1.0.0",
+  "description": "Falkor Nginx Authentication Server",
+  "author": "Barnabas Bucsy (https://github.com/theonethread)",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "falkor",
+    "nginx",
+    "authentication",
+    "server"
+  ],
+  "type": "module",
+  "main": ".dist/index.js",
+  "bin": ".dist/index.js",
+  "files": [
+    ".dist",
+    ".man",
+    "res"
+  ],
+  "man": ".man/falkor-auth-server.1",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "debug": "rimraf .dist/**/* && falkor-bundler --debug --input src/index.js",
+    "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js",
+    "man": "pandoc --version && (mkdir .man || echo folder exists) && rimraf .man/**/* && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-bundler.1",
+    "prepublishOnly": "npm run release && npm run man"
+  },
+  "devDependencies": {
+    "@types/node": "15.12.5",
+    "@types/shelljs": "0.8.8",
+    "@types/pino": "6.3.8",
+    "dotenv": "10.0.0",
+    "rimraf": "3.0.2",
+    "@falkor/falkor-bundler": "file:../falkor-bundler"
+  },
+  "dependencies": {
+    "yaml": "1.10.2",
+    "shelljs": "0.8.4",
+    "pino": "6.11.3",
+    "fastify": "3.18.1",
+    "fastify-static": "4.2.2",
+    "fastify-cookie": "5.3.1"
+  }
+}

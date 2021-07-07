@@ -1,0 +1,8 @@
+users:
+    memento:
+        pass: retekeger
+        roles:
+            - admin
+            - operation
+            - product
+            - development
