@@ -10,12 +10,8 @@ const recreateIv = (str) => Buffer.from(str.slice(0, 11) + "=", "base64").toStri
 const reverse = (str) => str.split("").reverse().join("");
 const recreateData = (str) => {
     let d = str.slice(11);
-    let pad = d.length % 4;
-    if (pad > 0) {
-        while (pad < 4) {
-            d += "=";
-            pad++;
-        }
+    if (d.length % 4 > 0) {
+        d.padEnd(Math.ceil(d.length / 4) * 4, "=");
     }
     return d;
 };
