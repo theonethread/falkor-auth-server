@@ -31,9 +31,9 @@
     "prepublishOnly": "npm run release && npm run man"
   },
   "devDependencies": {
-    "@types/node": "15.12.5",
-    "@types/shelljs": "0.8.8",
-    "@types/pino": "6.3.8",
+    "@types/node": "16.10.1",
+    "@types/shelljs": "0.8.9",
+    "@types/pino": "6.3.11",
     "dotenv": "10.0.0",
     "rimraf": "3.0.2",
     "@falkor/falkor-bundler": "file:../falkor-bundler"
@@ -41,9 +41,9 @@
   "dependencies": {
     "yaml": "1.10.2",
     "shelljs": "0.8.4",
-    "pino": "6.11.3",
-    "fastify": "3.18.1",
-    "fastify-static": "4.2.2",
+    "pino": "6.13.3",
+    "fastify": "3.21.6",
+    "fastify-static": "4.2.3",
     "fastify-cookie": "5.3.1"
   }
 }
