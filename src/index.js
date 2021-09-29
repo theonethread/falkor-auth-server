@@ -8,8 +8,6 @@ import dotenv from "dotenv";
 //#endif
 
 import configFactory from "./util/config.js";
-import managerProcess from "./process/manager.js";
-import serverProcess from "./process/server.js";
 
 //#if _DEBUG
 dotenv.config({ path: "res/config.env" });
@@ -34,4 +32,9 @@ const rootLogger = logFactory(
 );
 
 // TODO: `cluster.isPrimary` in v16
-cluster.isMaster ? managerProcess(config, rootLogger) : serverProcess(config, rootLogger);
+if (cluster.isMaster) {
+    import("./process/manager.js").then((m) => m.default(config, rootLogger));
+} else {
+    // NOTE: using `await` broke IPC here
+    import("./process/server.js").then((m) => m.default(config, rootLogger));
+}
