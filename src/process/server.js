@@ -15,16 +15,16 @@ export default async (config, rootLogger) => {
     await server.register(serverCookiePlugin);
 
     if (config.webStaticPath) {
-        const wasmRe = /\.wasm$/;
+        // const wasmRe = /\.wasm$/;
         await server.register(serverStaticPlugin, {
             root: config.webStaticPath,
             prefix: "/cdn/",
             send: { cacheControl: false },
             setHeaders: (res, path, stat) => {
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                if (wasmRe.test(path)) {
-                    res.setHeader("Content-Type", "application/wasm");
-                }
+                // if (wasmRe.test(path)) {
+                //     res.setHeader("Content-Type", "application/wasm");
+                // }
             }
         });
     }

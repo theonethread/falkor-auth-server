@@ -33,4 +33,5 @@ const rootLogger = logFactory(
     destination
 );
 
+// TODO: `cluster.isPrimary` in v16
 cluster.isMaster ? managerProcess(config, rootLogger) : serverProcess(config, rootLogger);
