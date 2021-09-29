@@ -11,13 +11,13 @@ export default (config, logger) => {
     const crypto = cryptoFactory(config.authSecret);
     const users = yaml.parse(shell.cat("res/auth.yml"))?.users;
 
-    const getPermissions = async (body) => {
-        if (body?.user && body?.pass) {
-            const u = users[body.user];
-            if (u?.pass === body.pass) {
+    const getPermissions = async (user, pass) => {
+        if (user && pass) {
+            const u = users[user];
+            if (u?.pass === pass) {
                 const joinedRoles = u.roles.join(roleJoiner);
                 return {
-                    user: body.user,
+                    user,
                     role: joinedRoles,
                     token: await crypto.encode([config.id, body.user, joinedRoles, time.sec36()].join(tokenJoiner))
                 };

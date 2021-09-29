@@ -99,7 +99,7 @@ export default (config, logger) => {
     };
 
     const login = async (request, response) => {
-        const permissions = await auth.getPermissions(request.body);
+        const permissions = await auth.getPermissions(request.body.user, request.body.pass);
         if (permissions) {
             response
                 .header(config.authHeaderUser, permissions.user)
