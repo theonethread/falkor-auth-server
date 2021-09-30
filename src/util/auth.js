@@ -12,17 +12,20 @@ export default (config, logger) => {
     const users = yaml.parse(shell.cat("res/auth.yml"))?.users;
 
     const getPermissions = async (user, pass) => {
-        if (user && pass) {
-            const u = users[user];
-            if (u?.pass === pass) {
-                const joinedRoles = u.roles.join(roleJoiner);
-                return {
-                    user,
-                    role: joinedRoles,
-                    token: await crypto.encode([config.id, body.user, joinedRoles, time.sec36()].join(tokenJoiner))
-                };
-            }
+        if (!user || !pass) {
+            return null;
         }
+
+        const u = userData[user];
+        if (u?.pass === pass) {
+            const joinedRoles = u.roles.join(roleJoiner);
+            return {
+                user,
+                role: joinedRoles,
+                token: await crypto.encode([config.id, body.user, joinedRoles, time.sec36()].join(tokenJoiner))
+            };
+        }
+
         return null;
     };
 
@@ -40,6 +43,7 @@ export default (config, logger) => {
         if (tokenId !== config.id || tokenTime < config.startTime) {
             return null;
         }
+
         return {
             user: tokenUser,
             role: tokenRoles,
