@@ -1,5 +1,6 @@
 import serverFactory from "fastify";
 import serverStaticPlugin from "fastify-static";
+import serverCorsPlugin from "fastify-cors";
 import serverCookiePlugin from "fastify-cookie";
 
 import routerFactory from "../util/router.js";
@@ -13,6 +14,9 @@ export default async (config, rootLogger) => {
     });
 
     await server.register(serverCookiePlugin);
+    await server.register(serverCorsPlugin, {
+        origin: /\.boredom\.cloud$/
+    });
 
     if (config.webStaticPath) {
         // const wasmRe = /\.wasm$/;
