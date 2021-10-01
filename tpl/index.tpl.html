@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, minimal-ui"
+    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <title>{{your-domain}} - Home</title>
+    <meta name="author" content="{{author}}" />
+  </head>
+  <body>
+    <section>
+      <pre id="loginTitle">{{your-domain}} - Login</pre>
+      <form id="loginForm">
+        <pre>Username: <input type="text" name="login" id="user" /></pre>
+        <pre>Password: <input type="password" name="pass" id="pass" /></pre>
+      </form>
+      <button id="loginButton">Login</button>
+      <button id="logoutButton">Logout</button>
+      <pre id="loginStatus"></pre>
+    </section>
+  </body>
+  <script>
+    const form = document.getElementById("loginForm");
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const status = document.getElementById("loginStatus");
+    const enableUi = (statusText = "") => {
+      loginButton.disabled = false;
+      logoutButton.disabled = false;
+      status.innerText = statusText;
+    };
+    const disableUi = () => {
+      loginButton.disabled = true;
+      logoutButton.disabled = true;
+      status.innerText = "Working...";
+      const ret = { user: form.user.value, pass: form.pass.value };
+      form.pass.value = "";
+      return ret;
+    };
+    loginButton.addEventListener("click", async () => {
+      const resp = await fetch("https://private.{{your-domain}}/api/v1/login", {
+        method: "POST",
+        redirect: "error",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(disableUi())
+      }).catch((err) => enableUi("Login failed.\n" + err));
+      if (resp?.ok) {
+        redirectUrl = new URLSearchParams(window.location.search).get("url");
+        if (redirectUrl) {
+          document.location = redirectUrl;
+        } else {
+          enableUi("Logged in.");
+        }
+      } else {
+        enableUi("Login failed.");
+      }
+    });
+    logoutButton.addEventListener("click", async () => {
+      disableUi();
+      const resp = await fetch("https://private.{{your-domain}}/api/v1/logout", {
+        redirect: "error"
+      }).catch((err) => enableUi("Logout failed.\n" + err));
+      if (resp?.ok) {
+        enableUi("Logged out.");
+      } else {
+        enableUi("Logout failed.");
+      }
+    });
+  </script>
+</html>

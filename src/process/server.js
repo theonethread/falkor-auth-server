@@ -61,11 +61,9 @@ export default async (config, rootLogger) => {
         schema: router.schema.login
     });
 
-    await server
-        .listen(config.port, config.host)
-        .then(() => logger.info({ status: "ready", protocol: "http", host: config.host, port: config.port }));
+    await server.listen(config.port, config.host);
+    logger.info({ status: "ready", protocol: "http", host: config.host, port: config.port });
 
-    // TODO: ipc
     process.on("message", (message) => {
         logger.info({ message });
     });
