@@ -13,7 +13,7 @@ export default () => {
         domain: process.env.SERVER_DOMAIN,
         host: process.env.SERVER_HOST || "0.0.0.0",
 
-        cookieName: process.env.COOKIE_NAME || "falkor_cloud_token",
+        cookieName: process.env.COOKIE_NAME || "@falkor_cloud_token",
         cookieTtl: +process.env.COOKIE_TTL || 14400, // sec
 
         authSecret: process.env.AUTH_SECRET || "%-super-secret-%",
