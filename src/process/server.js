@@ -1,5 +1,4 @@
 import serverFactory from "fastify";
-import serverStaticPlugin from "fastify-static";
 import serverCookiePlugin from "fastify-cookie";
 
 import routerFactory from "../util/router.js";
@@ -13,21 +12,6 @@ export default async (config, rootLogger) => {
     });
 
     await server.register(serverCookiePlugin);
-
-    if (config.webStaticPath) {
-        // const wasmRe = /\.wasm$/;
-        await server.register(serverStaticPlugin, {
-            root: config.webStaticPath,
-            prefix: "/cdn/",
-            send: { cacheControl: false },
-            setHeaders: (res, path, stat) => {
-                res.setHeader("Access-Control-Allow-Origin", "*");
-                // if (wasmRe.test(path)) {
-                //     res.setHeader("Content-Type", "application/wasm");
-                // }
-            }
-        });
-    }
 
     server.route({
         method: "GET",

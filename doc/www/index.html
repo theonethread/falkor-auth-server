@@ -10,12 +10,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>boredom.cloud - Home</title>
+    <title>Falkor - Home</title>
     <meta name="author" content="Barnabas Bucsy" />
   </head>
   <body>
     <section>
-      <pre id="loginTitle">boredom.cloud - Login</pre>
+      <pre id="loginTitle">Falkor - Login</pre>
       <form id="loginForm">
         <pre>Username: <input type="text" name="login" id="user" /></pre>
         <pre>Password: <input type="password" name="pass" id="pass" /></pre>
@@ -44,7 +44,7 @@
       return ret;
     };
     loginButton.addEventListener("click", async () => {
-      const resp = await fetch("https://home.boredom.cloud/api/v1/login", {
+      const resp = await fetch("https://falkor.boredom.cloud/api/v1/login", {
         method: "POST",
         redirect: "error", // NOTE: only error pages redirect to static handlers
         headers: { "Content-Type": "application/json" },
@@ -63,7 +63,7 @@
     });
     logoutButton.addEventListener("click", async () => {
       disableUi();
-      const resp = await fetch("https://home.boredom.cloud/api/v1/logout", {
+      const resp = await fetch("https://falkor.boredom.cloud/api/v1/logout", {
         redirect: "error" // NOTE: only error pages redirect to static handlers
       }).catch((err) => enableUi("Logout failed.\n" + err));
       if (resp?.ok) {

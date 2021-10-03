@@ -75,8 +75,8 @@ export default (config, logger) => {
     const logout = async (request, response) => {
         response
             .clearCookie(config.cookieName, getCookieOptions())
-            .header(config.authHeaderUser, "")
-            .header(config.authHeaderRole, "")
+            // .header(config.authHeaderUser, "")
+            // .header(config.authHeaderRole, "")
             .send(getSendValues(defaultSendSuccess));
     };
 
@@ -85,14 +85,19 @@ export default (config, logger) => {
         if (permissions) {
             response
                 .code(200)
-                .header(config.authHeaderUser, permissions.user)
-                .header(config.authHeaderRole, permissions.role)
-                .send(getSendValues(defaultSendSuccess));
+                // .header(config.authHeaderUser, permissions.user)
+                // .header(config.authHeaderRole, permissions.role)
+                .send(
+                    getSendValues(defaultSendSuccess, {
+                        user: permissions.user,
+                        role: permissions.role
+                    })
+                );
         } else {
             response
                 .code(401)
-                .header(config.authHeaderUser, "")
-                .header(config.authHeaderRole, "")
+                // .header(config.authHeaderUser, "")
+                // .header(config.authHeaderRole, "")
                 .clearCookie(config.cookieName, getCookieOptions())
                 .send(getSendValues(defaultSendFailure));
         }
@@ -102,16 +107,21 @@ export default (config, logger) => {
         const permissions = await auth.getPermissions(request.body.user, request.body.pass);
         if (permissions) {
             response
-                .header(config.authHeaderUser, permissions.user)
-                .header(config.authHeaderRole, permissions.role)
+                // .header(config.authHeaderUser, permissions.user)
+                // .header(config.authHeaderRole, permissions.role)
                 .setCookie(config.cookieName, permissions.token, getCookieOptions({ maxAge: config.cookieTtl }))
-                .send(getSendValues(defaultSendSuccess));
+                .send(
+                    getSendValues(defaultSendSuccess, {
+                        user: permissions.user,
+                        role: permissions.role
+                    })
+                );
             return;
         }
         response
             .status(401)
-            .header(config.authHeaderUser, "")
-            .header(config.authHeaderRole, "")
+            // .header(config.authHeaderUser, "")
+            // .header(config.authHeaderRole, "")
             .clearCookie(config.cookieName, getCookieOptions())
             .send(getSendValues(defaultSendFailure));
     };
