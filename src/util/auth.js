@@ -39,14 +39,14 @@ export default (config, logger) => {
             return null;
         }
 
-        const [tokenId, tokenUser, tokenRoles, tokenTime] = raw.split(tokenJoiner);
+        const [tokenId, tokenUser, tokenRole, tokenTime] = raw.split(tokenJoiner);
         if (tokenId !== config.id || tokenTime < config.startTime) {
             return null;
         }
 
         return {
             user: tokenUser,
-            role: tokenRoles,
+            role: tokenRole,
             token
         };
     };
