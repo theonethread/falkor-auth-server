@@ -85,7 +85,7 @@ export default (config, logger) => {
     };
 
     const validate = async (request, response) => {
-        const permissions = auth.validateToken(request?.cookies[config.cookieName]);
+        const permissions = auth.validateToken(request.hostname, request?.cookies[config.cookieName]);
         if (permissions) {
             response
                 .code(200)
@@ -108,7 +108,7 @@ export default (config, logger) => {
     };
 
     const login = async (request, response) => {
-        const permissions = await auth.getPermissions(request.body.user, request.body.pass);
+        const permissions = await auth.getPermissions(request.hostname, request.body.user, request.body.pass);
         if (permissions) {
             response
                 // .header(config.authHeaderUser, permissions.user)

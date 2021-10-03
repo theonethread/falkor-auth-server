@@ -11,7 +11,7 @@ export default (config, logger) => {
     const crypto = cryptoFactory(config.authSecret);
     const userData = yaml.parse(shell.cat("res/auth.yml"))?.users;
 
-    const getPermissions = async (user, pass) => {
+    const getPermissions = async (hostname, user, pass) => {
         if (!user || !pass) {
             return null;
         }
@@ -29,7 +29,7 @@ export default (config, logger) => {
         return null;
     };
 
-    const validateToken = (token) => {
+    const validateToken = (hostname, token) => {
         if (!token) {
             return null;
         }
