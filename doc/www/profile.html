@@ -16,12 +16,23 @@
   <body>
     <section>
       <pre id="profileTitle">Falkor - Profile</pre>
+      <button id="whoButton">Who am I?</button>
+      <pre id="whoStatus"></pre>
     </section>
   </body>
   <script>
-    const resp = await fetch("https://falkor.boredom.cloud/api/v1/validate", {
-      method: "HEAD",
-      redirect: "error", // NOTE: only error pages redirect to static handlers
-    }).catch((err) => console.log("Fetch failed"));
+    const whoButton = document.getElementById("whoButton");
+    const status = document.getElementById("whoStatus");
+    whoButton.addEventListener("click", async () => {
+      const resp = await fetch("https://falkor.boredom.cloud/api/v1/validate", {
+        redirect: "error" // NOTE: only error pages redirect to static handlers
+      }).catch((err) => console.log("Fetch failed"));
+      if (resp?.ok) {
+        const data = await resp.json();
+        status.innerText = `User: ${data.user}\nRole: ${data.role.replace(/:/g, ", ")}`;
+      } else {
+        status.innerText = "Validation failed.";
+      }
+    });
   </script>
 </html>

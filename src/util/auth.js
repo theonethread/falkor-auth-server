@@ -9,7 +9,7 @@ const roleJoiner = ":";
 
 export default (config, logger) => {
     const crypto = cryptoFactory(config.authSecret);
-    const users = yaml.parse(shell.cat("res/auth.yml"))?.users;
+    const userData = yaml.parse(shell.cat("res/auth.yml"))?.users;
 
     const getPermissions = async (user, pass) => {
         if (!user || !pass) {
@@ -22,7 +22,7 @@ export default (config, logger) => {
             return {
                 user,
                 role: joinedRoles,
-                token: await crypto.encode([config.id, body.user, joinedRoles, time.sec36()].join(tokenJoiner))
+                token: await crypto.encode([config.id, user, joinedRoles, time.sec36()].join(tokenJoiner))
             };
         }
 

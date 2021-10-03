@@ -9,7 +9,7 @@ RestartSec=5
 User=root
 EnvironmentFile=-/usr/local/lib/falkor-auth-server/res/config.env
 WorkingDirectory=/usr/local/lib/falkor-auth-server/
-ExecStart=/usr/local/bin/hitech-auth
+ExecStart=/usr/local/lib/falkor-auth-server/.dist/index.js
 
 [Install]
 WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 import authFactory from "./auth.js";
 
-const extend = (base, extraParams) => {
+const extend = (base, ...extraParams) => {
     if (extraParams) {
         return Object.assign({}, base, ...extraParams);
     }
@@ -23,19 +23,23 @@ export default (config, logger) => {
     const defaultSendSuccess = { status: "success" };
     const defaultSendFailure = { status: "failure" };
 
-    const getCookieOptions = (...extraParams) => extend(defaultCookieOptions, extraParams);
-    const getSendValues = (...extraParams) => extend(defaultSendValues, extraParams);
+    const getCookieOptions = (...extraParams) => extend(defaultCookieOptions, ...extraParams);
+    const getSendValues = (...extraParams) => extend(defaultSendValues, ...extraParams);
     const buildSchema = () => {
         const response200 = {
             type: "object",
+            required: ["pid", "id", "status"],
             properties: {
                 pid: { type: "integer", const: config.pid },
                 id: { type: "string", const: config.id },
-                status: { type: "string", const: defaultSendSuccess.status }
+                status: { type: "string", const: defaultSendSuccess.status },
+                user: { type: "string" },
+                role: { type: "string" }
             }
         };
         const response401 = {
             type: "object",
+            required: ["pid", "id", "status"],
             properties: {
                 pid: { type: "integer", const: config.pid },
                 id: { type: "string", const: config.id },
