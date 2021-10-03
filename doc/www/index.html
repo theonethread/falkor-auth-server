@@ -49,7 +49,7 @@
         redirect: "error", // NOTE: only error pages redirect to static handlers
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(disableUi())
-      }).catch((err) => enableUi("Login failed.\n" + err));
+      }).catch((err) => enableUi("Login fetch failed.\n" + err));
       if (resp?.ok) {
         redirectUrl = new URLSearchParams(window.location.search).get("url");
         if (redirectUrl) {
@@ -65,7 +65,7 @@
       disableUi();
       const resp = await fetch("https://falkor.boredom.cloud/api/v1/logout", {
         redirect: "error" // NOTE: only error pages redirect to static handlers
-      }).catch((err) => enableUi("Logout failed.\n" + err));
+      }).catch((err) => enableUi("Logout fetch failed.\n" + err));
       if (resp?.ok) {
         enableUi("Logged out.");
       } else {
