@@ -17,8 +17,9 @@ export default () => {
         cookieTtl: +process.env.COOKIE_TTL || 14400, // sec
 
         authSecret: process.env.AUTH_SECRET || "%-super-secret-%",
-        // authHeaderUser: process.env.AUTH_HEADER_USER || "X-Falkor-User",
-        // authHeaderRole: process.env.AUTH_HEADER_ROLE || "X-Falkor-Role",
+        authHeaderUser: process.env.AUTH_HEADER_USER || "X-Falkor-User",
+        authHeaderRole: process.env.AUTH_HEADER_ROLE || "X-Falkor-Role",
+        authDb: process.env.AUTH_DB || "./res/auth.yml",
 
         logTimestamp: !falseValues.includes(process.env.LOG_TIMESTAMP),
         logLevel: process.env.LOG_LEVEL || "debug",

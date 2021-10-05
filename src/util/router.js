@@ -7,8 +7,8 @@ const extend = (base, ...extraParams) => {
     return base;
 };
 
-export default (config, logger) => {
-    const auth = authFactory(config, logger);
+export default async (config, logger) => {
+    const auth = await authFactory(config, logger);
 
     const defaultCookieOptions = {
         httpOnly: true,
@@ -79,8 +79,8 @@ export default (config, logger) => {
     const logout = async (request, response) => {
         response
             .clearCookie(config.cookieName, getCookieOptions())
-            // .header(config.authHeaderUser, "")
-            // .header(config.authHeaderRole, "")
+            .header(config.authHeaderUser, "")
+            .header(config.authHeaderRole, "")
             .send(getSendValues(defaultSendSuccess));
     };
 
@@ -89,8 +89,8 @@ export default (config, logger) => {
         if (permissions) {
             response
                 .code(200)
-                // .header(config.authHeaderUser, permissions.user)
-                // .header(config.authHeaderRole, permissions.role)
+                .header(config.authHeaderUser, permissions.user)
+                .header(config.authHeaderRole, permissions.role)
                 .send(
                     getSendValues(defaultSendSuccess, {
                         user: permissions.user,
@@ -100,8 +100,8 @@ export default (config, logger) => {
         } else {
             response
                 .code(401)
-                // .header(config.authHeaderUser, "")
-                // .header(config.authHeaderRole, "")
+                .header(config.authHeaderUser, "")
+                .header(config.authHeaderRole, "")
                 .clearCookie(config.cookieName, getCookieOptions())
                 .send(getSendValues(defaultSendFailure));
         }
@@ -111,8 +111,8 @@ export default (config, logger) => {
         const permissions = await auth.getPermissions(request.hostname, request.body.user, request.body.pass);
         if (permissions) {
             response
-                // .header(config.authHeaderUser, permissions.user)
-                // .header(config.authHeaderRole, permissions.role)
+                .header(config.authHeaderUser, permissions.user)
+                .header(config.authHeaderRole, permissions.role)
                 .setCookie(config.cookieName, permissions.token, getCookieOptions({ maxAge: config.cookieTtl }))
                 .send(
                     getSendValues(defaultSendSuccess, {
@@ -124,8 +124,8 @@ export default (config, logger) => {
         }
         response
             .status(401)
-            // .header(config.authHeaderUser, "")
-            // .header(config.authHeaderRole, "")
+            .header(config.authHeaderUser, "")
+            .header(config.authHeaderRole, "")
             .clearCookie(config.cookieName, getCookieOptions())
             .send(getSendValues(defaultSendFailure));
     };

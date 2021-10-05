@@ -7,16 +7,17 @@ import cryptoFactory from "./crypto.js";
 const tokenJoiner = "#";
 const roleJoiner = ":";
 
-export default (config, logger) => {
+export default async (config, logger) => {
     const crypto = cryptoFactory(config.authSecret);
-    const userData = yaml.parse(shell.cat("res/auth.yml"))?.users;
+
+    const db = await (await import("../db/filedb.js")).default(config, logger);
 
     const getPermissions = async (hostname, user, pass) => {
         if (!user || !pass) {
             return null;
         }
 
-        const u = userData[user];
+        const u = await db.getUserData(user);
         if (u?.pass === pass) {
             const joinedRoles = u.roles.join(roleJoiner);
             return {

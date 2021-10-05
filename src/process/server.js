@@ -5,7 +5,7 @@ import routerFactory from "../util/router.js";
 
 export default async (config, rootLogger) => {
     const logger = rootLogger.child({ process: "worker" });
-    const router = routerFactory(config, logger);
+    const router = await routerFactory(config, logger);
     const server = serverFactory({
         disableRequestLogging: true,
         logger
