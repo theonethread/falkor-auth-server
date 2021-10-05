@@ -7,7 +7,7 @@ Type=simple
 Restart=on-failure
 RestartSec=5
 User=root
-EnvironmentFile=-/usr/local/lib/falkor-auth-server/res/config.env
+EnvironmentFile=/usr/local/lib/falkor-auth-server/res/config.env
 WorkingDirectory=/usr/local/lib/falkor-auth-server/
 ExecStart=/usr/local/lib/falkor-auth-server/.dist/index.js
 

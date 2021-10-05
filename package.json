@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/node": "14.17.6",
+    "@types/minimist": "1.2.2",
     "@types/shelljs": "0.8.9",
     "@types/pino": "6.3.11",
     "@types/yaml": "1.9.7",
@@ -43,6 +44,7 @@
     "@falkor/falkor-bundler": "1.0.0"
   },
   "dependencies": {
+    "minimist": "1.2.5",
     "yaml": "1.10.2",
     "shelljs": "0.8.4",
     "pino": "6.13.3",
