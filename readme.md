@@ -1,5 +1,9 @@
 # **[Falkor] Authentication Server**
 
+```javascript
+// Work IN Progress
+```
+
 The `falkor-auth-server` project is a standalone npm command-line application written in TypeScript to be used as an nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
 
 ## **Installation**
