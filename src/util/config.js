@@ -16,7 +16,7 @@ export default (argv) => {
         cookieName: argv.c || argv.cookie || process.env.COOKIE_NAME || "@falkor_cloud_token",
         cookieTtl: argv.t || argv.ttl || +process.env.COOKIE_TTL || 14400, // sec
 
-        authSecret: argv.s || argv.secret || process.env.AUTH_SECRET || "%-super-secret-%",
+        authSecret: argv.s || argv.secret || process.env.AUTH_SECRET,
         authHeaderUser: argv.u || argv.user || process.env.AUTH_HEADER_USER || "X-Falkor-User",
         authHeaderRole: argv.r || argv.role || process.env.AUTH_HEADER_ROLE || "X-Falkor-Role",
         authDb: argv.D || argv.db || process.env.AUTH_DB,

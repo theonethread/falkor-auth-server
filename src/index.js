@@ -43,19 +43,19 @@ Usage:
 Options:
     -v, --version                   Show version and exit
     -h, --help                      Show this screen and exit
-    -i <id>, --id <id>              ID of server
-    -p <port>, --port <port>        Port of server
+    -i <id>, --id <id>              ID of server  [default: falkor-auth]
+    -p <port>, --port <port>        Port of server  [default: 9999]
     -d <domain>, --domain <domain>  Domain of the cookies to set
-    -H <host>, --host <host>        Host of the server
-    -c <cookie>, --cookie <cookie>  Cookie name
-    -t <ttl>, --ttl <ttl>           Cookie TTL
-    -s <secret>, --secret <secret>  Server secret for toke encryption
-    -u <user>, --user <user>        User response header name
-    -r <role>, --role <role>        Role response header name
-    -D <db>, --db <db>              User database, either "mongodb+srv://" address, or relative path to yml file
-    -S <stamp>, --stamp <stamp>     Add timestamp to logs
-    -l <level>, --level <level>     Log level
-    -f <file>, --file <file>        Log file destination
+    -H <host>, --host <host>        Host of the server  [default: 0.0.0.0]
+    -c <cookie>, --cookie <cookie>  Cookie name  [default: @falkor_cloud_token]
+    -t <ttl>, --ttl <ttl>           Cookie TTL  [default: 14400]
+    -s <secret>, --secret <secret>  16 characters long secret for token encryption
+    -u <user>, --user <user>        User response header name  [default: X-Falkor-User]
+    -r <role>, --role <role>        Role response header name  [default: X-Falkor-Role]
+    -D <db>, --db <db>              User database, either "mongodb+srv://" address, or relative path to yml file  [must]
+    -S <stamp>, --stamp <stamp>     Add timestamp to logs  [default: true]
+    -l <level>, --level <level>     Log level  [default: debug]
+    -f <file>, --file <file>        Log file destination, if set logs will be dumped here
 `);
     process.exit(0);
 }

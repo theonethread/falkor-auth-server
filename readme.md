@@ -33,37 +33,51 @@ Options:
 
 * `-v` or `--version`: Show version and exit
 * `-h` or `--help`: Show help and exit
-* `-i <id>` or `--id <id>`: ID of server
-* `-p <port>` or `--port <port>`: Port of server
+* `-i <id>` or `--id <id>`: ID of server (default: `falkor-auth`)
+* `-p <port>` or `--port <port>`: Port of server (default: `9999`)
 * `-d <domain>` or `--domain <domain>`: Domain of the cookies to set
-* `-H <host>` or `--host <host>`: Host of the server
-* `-c <cookie>` or `--cookie <cookie>`: Cookie name
-* `-t <ttl>` or `--ttl <ttl>`: Cookie TTL
-* `-s <secret>` or `--secret <secret>`: Server secret for toke encryption
-* `-u <user>` or `--user <user>`: User response header name
-* `-r <role>` or `--role <role>`: Role response header name
+* `-H <host>` or `--host <host>`: Host of the server (default: `0.0.0.0`)
+* `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_cloud_token`)
+* `-t <ttl>` or `--ttl <ttl>`: Cookie TTL (default: `14400`)
+* `-s <secret>` or `--secret <secret>`: 16 characters long secret for token encryption
+* `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
+* `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
 * `-D <db>` or `--db <db>`: User database, either "mongodb+srv://" address, or relative path to yml file
-* `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs
-* `-l <level>` or `--level <level>`: Log level
-* `-f <file>` or `--file <file>`: Log file destination
+* `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
+* `-l <level>` or `--level <level>`: Log level (default: `debug`)
+* `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
 ### **Environment Variables**
 
 All CLI options can be set as environment variables too, though CLI flags overpower them.
 
-* `SERVER_ID=<id>`: ID of server
-* `SERVER_PORT=<port>`: Port of server
+* `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
+* `SERVER_PORT=<port>`: Port of server (default: `9999`)
 * `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
-* `SERVER_HOST=<host>`: Host of the server
-* `COOKIE_NAME=<cookie>`: Cookie name
-* `COOKIE_TTL=<ttl>`: Cookie TTL
-* `AUTH_SECRET=<secret>`: Server secret for toke encryption
-* `AUTH_HEADER_USER=<user>`: User response header name
-* `AUTH_HEADER_ROLE=<role>`: Role response header name
+* `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
+* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_cloud_token`)
+* `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
+* `AUTH_SECRET=<secret>`: 16 characters long secret for token encryption
+* `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
+* `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
 * `AUTH_DB=<db>`: User database, either "mongodb+srv://" address, or relative path to yml file
-* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs
-* `LOG_LEVEL=<level>`: Log level
-* `LOG_FILE=<file>`: Log file destination
+* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
+* `LOG_LEVEL=<level>`: Log level (default: `debug`)
+* `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
+
+### **Must Have Settings**
+
+The following settings must be present either running the application with CLI options, or using environment variables:
+
+* Domain of the cookies to set:
+    * `-d <domain>` or `--domain <domain>`
+    * `SERVER_DOMAIN=<domain>`
+* 16 characters long secret for token encryption:
+    * `-s <secret>` or `--secret <secret>`
+    * `AUTH_SECRET=<secret>`
+* User database, either "mongodb+srv://" address, or relative path to yml file:
+    * `-D <db>` or `--db <db>`
+    * `AUTH_DB=<db>`
 
 ### **Man Page**
 
