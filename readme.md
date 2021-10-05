@@ -47,6 +47,24 @@ Options:
 * `-l <level>` or `--level <level>`: Log level
 * `-f <file>` or `--file <file>`: Log file destination
 
+### **Environment Variables**
+
+All CLI options can be set as environment variables too, though CLI flags overpower them.
+
+* `SERVER_ID=<id>`: ID of server
+* `SERVER_PORT=<port>`: Port of server
+* `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
+* `SERVER_HOST=<host>`: Host of the server
+* `COOKIE_NAME=<cookie>`: Cookie name
+* `COOKIE_TTL=<ttl>`: Cookie TTL
+* `AUTH_SECRET=<secret>`: Server secret for toke encryption
+* `AUTH_HEADER_USER=<user>`: User response header name
+* `AUTH_HEADER_ROLE=<role>`: Role response header name
+* `AUTH_DB=<db>`: User database, either "mongodb+srv://" address, or relative path to yml file
+* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs
+* `LOG_LEVEL=<level>`: Log level
+* `LOG_FILE=<file>`: Log file destination
+
 ### **Man Page**
 
 By default the `falkor-auth-server` project ships with a pre-compiled man page when installed on Unix-like operating systems. The manual was created by converting the file [`man/man.md`](man/man.md "Open").
