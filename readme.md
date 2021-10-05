@@ -42,7 +42,7 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 16 characters long secret for token encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database, either "mongodb+srv://" address, or relative path to yml file
+* `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to yml file
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
@@ -62,7 +62,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `AUTH_SECRET=<secret>`: 16 characters long secret for token encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database, either "mongodb+srv://" address, or relative path to yml file
+* `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to yml file
 * `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
@@ -79,7 +79,7 @@ The following settings must be present either running the application with CLI o
 * 16 characters long secret for token encryption:
     * `-s <secret>` or `--secret <secret>`
     * `AUTH_SECRET=<secret>`
-* User database, either "mongodb+srv://" address, or relative path to yml file:
+* User database, either `mongodb+srv://` address, or relative path to yml file:
     * `-D <db>` or `--db <db>`
     * `AUTH_DB=<db>`
 
@@ -87,9 +87,34 @@ The following settings must be present either running the application with CLI o
 
 Currently the server supports `.yml` file based authentication, or connecting to a MongoDB instance.
 
-### **YAML Schema**
+### **MongoDB**
 
-### **MongoDB Schema**
+If the DB option starts with `mongodb+srv://`, the application will assume the following database setup:
+
+* Database: `authentication`
+* Collection: `users`
+* Entries:
+
+```javascript
+{
+    name: { type: "string" }
+    pass: { type: "string" }
+    roles: { type: "array", items: { type: "string" } }
+}
+```
+
+### **YAML**
+
+If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yaml` file with the structure:
+
+```yaml
+users:
+    - name: string
+      pass: string
+      roles: [ string ]
+```
+
+> _**SEE**: [`auth.ym`](res/auth.yml "Open")_
 
 ## **Development**
 
