@@ -79,7 +79,7 @@ The following settings must be present either running the application with CLI o
 * 16 characters long secret for token encryption:
     * `-s <secret>` or `--secret <secret>`
     * `AUTH_SECRET=<secret>`
-* User database, either `mongodb+srv://` address, or relative path to yml file:
+* User database, either `mongodb+srv://` address, or relative path to `.yml` file:
     * `-D <db>` or `--db <db>`
     * `AUTH_DB=<db>`
 
@@ -108,7 +108,7 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 
 ### **YAML**
 
-If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yaml` file with the structure:
+If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
 
 ```yaml
 users:
