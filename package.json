@@ -1,7 +1,7 @@
 {
   "name": "@falkor/falkor-auth-server",
   "version": "1.0.0",
-  "description": "Falkor Nginx Authentication Server",
+  "description": "Falkor Nginx authentication server",
   "author": "Barnabas Bucsy (https://github.com/theonethread)",
   "license": "MIT",
   "private": true,
