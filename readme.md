@@ -42,7 +42,7 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 16 characters long secret for token encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to yml file
+* `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
@@ -62,7 +62,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `AUTH_SECRET=<secret>`: 16 characters long secret for token encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to yml file
+* `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
 * `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
