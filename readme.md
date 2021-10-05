@@ -47,6 +47,8 @@ Options:
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
+> _**SEE**: [`config.js`](src/util/config.js "Open")_
+
 ### **Environment Variables**
 
 All CLI options can be set as environment variables too, though CLI flags overpower them.
@@ -65,6 +67,8 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
+> _**SEE**: [`config.env`](res/config.env "Open")_
+
 ### **Must Have Settings**
 
 The following settings must be present either running the application with CLI options, or using environment variables:
@@ -78,6 +82,16 @@ The following settings must be present either running the application with CLI o
 * User database, either "mongodb+srv://" address, or relative path to yml file:
     * `-D <db>` or `--db <db>`
     * `AUTH_DB=<db>`
+
+## **User Data**
+
+Currently the server supports `.yml` file based authentication, or connecting to a MongoDB instance.
+
+### **YAML Schema**
+
+### **MongoDB Schema**
+
+## **Development**
 
 ### **Man Page**
 

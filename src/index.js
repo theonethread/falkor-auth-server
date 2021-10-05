@@ -71,6 +71,10 @@ if (!config.authDb) {
     throw "Error: Mongodb address, or yaml file must be set (-D, --db, AUTH_DB)";
 }
 
+if (!config.authSecret) {
+    throw "Error: 16 characters long secret must be set (-s, --secret, AUTH_SECRET)";
+}
+
 let destination = undefined;
 if (config.logFile) {
     shell.mkdir("-p", path.dirname(config.logFile));

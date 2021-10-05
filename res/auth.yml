@@ -1,8 +1,8 @@
 users:
-    memento:
-        pass: retekeger
-        roles:
-            - admin
-            - operation
-            - product
-            - development
+    - user: admin
+      pass: admin
+      roles:
+          - admin
+          - operation
+          - product
+          - development
