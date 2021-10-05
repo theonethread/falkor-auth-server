@@ -19,7 +19,7 @@ export default () => {
         authSecret: process.env.AUTH_SECRET || "%-super-secret-%",
         authHeaderUser: process.env.AUTH_HEADER_USER || "X-Falkor-User",
         authHeaderRole: process.env.AUTH_HEADER_ROLE || "X-Falkor-Role",
-        authDb: process.env.AUTH_DB || "./res/auth.yml",
+        authDb: process.env.AUTH_DB,
 
         logTimestamp: !falseValues.includes(process.env.LOG_TIMESTAMP),
         logLevel: process.env.LOG_LEVEL || "debug",

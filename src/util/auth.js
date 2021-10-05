@@ -1,6 +1,3 @@
-import yaml from "yaml";
-import shell from "shelljs";
-
 import time from "./time.js";
 import cryptoFactory from "./crypto.js";
 
@@ -10,7 +7,14 @@ const roleJoiner = ":";
 export default async (config, logger) => {
     const crypto = cryptoFactory(config.authSecret);
 
-    const db = await (await import("../db/filedb.js")).default(config, logger);
+    let db;
+    if (/^mongodb\+srv:\/\//.test(config.authDb)) {
+        const mongoDbModule = await import("../db/mongo.js");
+        db = await mongoModule.default(config, logger);
+    } else {
+        const fileDbModule = await import("../db/file.js");
+        db = await fileModule.default(config, logger);
+    }
 
     const getPermissions = async (hostname, user, pass) => {
         if (!user || !pass) {

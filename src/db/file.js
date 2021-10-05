@@ -5,6 +5,6 @@ export default async (config, logger) => {
     const userData = yaml.parse(shell.cat(config.authDb))?.users;
 
     return {
-        getUserData: (user) => userData[user]
+        getUserData: async (user) => userData[user]
     };
 };
