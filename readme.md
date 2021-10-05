@@ -114,7 +114,7 @@ users:
       roles: [ string ]
 ```
 
-> _**SEE**: [`auth.ym`](res/auth.yml "Open")_
+> _**SEE**: [`auth.yml`](res/auth.yml "Open")_
 
 ## **Development**
 
