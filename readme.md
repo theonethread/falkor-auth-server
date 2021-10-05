@@ -99,7 +99,10 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 {
     name: { type: "string" }
     pass: { type: "string" }
-    roles: { type: "array", items: { type: "string" } }
+    roles: {
+        type: "array",
+        items: { type: "string" }
+    }
 }
 ```
 
