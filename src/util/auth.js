@@ -5,16 +5,16 @@ const tokenJoiner = "#";
 const roleJoiner = ":";
 
 export default async (config, logger) => {
-    const crypto = cryptoFactory(config.authSecret);
-
     let db;
     if (/^mongodb\+srv:\/\//.test(config.authDb)) {
         const mongoDbModule = await import("../db/mongo.js");
-        db = await mongoModule.default(config, logger);
+        db = await mongoDbModule.default(config, logger);
     } else {
         const fileDbModule = await import("../db/file.js");
-        db = await fileModule.default(config, logger);
+        db = await fileDbModule.default(config, logger);
     }
+
+    const crypto = cryptoFactory(config.authSecret);
 
     const getPermissions = async (hostname, user, pass) => {
         if (!user || !pass) {
