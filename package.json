@@ -39,7 +39,7 @@
     "@types/mongodb": "4.0.7",
     "dotenv": "10.0.0",
     "rimraf": "3.0.2",
-    "@falkor/falkor-bundler": "file:../falkor-bundler"
+    "@falkor/falkor-bundler": "1.0.0"
   },
   "dependencies": {
     "yaml": "1.10.2",
