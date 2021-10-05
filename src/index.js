@@ -33,8 +33,12 @@ version ${retrieveOwnVersion()}
 Falkor Nginx authentication preflight proxy server - part of the Falkor Framework
 
 Usage:
+    falkor-auth-server [(--id <id>)] [(--port <port>)] [(--domain <domain>)] [(--host <host>)] [(--cookie <cookie>)]
+        [(--ttl <ttl>)] [(--secret <secret>)] [(--user <user>)] [(--role <role>)] [(--db <db>)] [(--stamp <stamp>)]
+        [(--level <level>)] [(--file <file>)]
+    falkor-auth-server [(--i <id>)] [(--p <port>)] [(--d <domain>)] [(--H <host>)] [(--c <cookie>)][(--t <ttl>)] 
+        [(--s <secret>)] [(--u <user>)] [(--r <role>)] [(--D <db>)] [(--S <stamp>)] [(--l <level>)] [(--f <file>)]
     falkor-auth-server (-v | --version | -h | --help)
-    falkor-auth-server
 
 Options:
     -v, --version                   Show version and exit
