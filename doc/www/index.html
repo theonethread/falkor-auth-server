@@ -46,6 +46,7 @@
     loginButton.addEventListener("click", async () => {
       const resp = await fetch("https://falkor.boredom.cloud/api/v1/login", {
         method: "POST",
+        credentials: "include",
         redirect: "error", // NOTE: only error pages redirect to static handlers
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(disableUi())
@@ -64,6 +65,7 @@
     logoutButton.addEventListener("click", async () => {
       disableUi();
       const resp = await fetch("https://falkor.boredom.cloud/api/v1/logout", {
+        credentials: "include",
         redirect: "error" // NOTE: only error pages redirect to static handlers
       }).catch((err) => enableUi("Logout fetch failed.\n" + err));
       if (resp?.ok) {
