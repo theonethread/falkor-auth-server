@@ -50,6 +50,6 @@
     "pino": "6.13.3",
     "fastify": "3.22.0",
     "fastify-cookie": "5.3.1",
-    "mongodb": "4.1.2"
+    "mongodb": "4.1.3"
   }
 }
