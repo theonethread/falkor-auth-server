@@ -131,4 +131,8 @@ To recompile the manual, make sure that [`Pandoc`](https://pandoc.org/ "Visit") 
 $ npm run man
 ```
 
+### **Open Source**
+
+You can always find the latest sources on [GitHub](https://github.com/theonethread/falkor-auth-server "Visit").
+
 _©2020-2021 Barnabas Bucsy - All rights reserved._
