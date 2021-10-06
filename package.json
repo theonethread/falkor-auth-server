@@ -45,7 +45,7 @@
     "@types/mongodb": "4.0.7",
     "dotenv": "10.0.0",
     "rimraf": "3.0.2",
-    "@falkor/falkor-bundler": "1.0.0"
+    "@falkor/falkor-bundler": "file:../falkor-bundler"
   },
   "dependencies": {
     "minimist": "1.2.5",
