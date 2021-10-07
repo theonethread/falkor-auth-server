@@ -48,7 +48,7 @@ The **falkor-auth-server** project is a standalone npm command-line application 
 :   Cookie TTL  (default: **14400**)
 
 `-s <secret>`, `--secret <secret>`
-:   16 characters long secret for token encryption
+:   32 characters long secret for token and password encryption
 
 `-u <user>`, `--user <user>`
 :   User response header name  (default: **X-Falkor-User**)

@@ -17,14 +17,17 @@ const recreateData = (str) => {
 };
 
 export default (secret) => {
-    if (Buffer.from(secret).length !== 16) {
-        throw "Crypto: invalid key length, must be 16 characters";
+    if (Buffer.from(secret).length !== 32) {
+        throw "Crypto: invalid key length, must be 32 characters";
     }
 
-    const encode = async (str) => {
+    const tokenSecret = secret.slice(0, 16);
+    const pwdSecret = secret.slice(16);
+
+    const encode = async (str, pwd = false) => {
         try {
             const iv = await randomBytesPromise(8);
-            const cipher = crypto.createCipheriv("aes-128-cbc", secret, iv.toString("hex"));
+            const cipher = crypto.createCipheriv("aes-128-cbc", pwd ? pwdSecret : tokenSecret, iv.toString("hex"));
             const data = cipher.update(str, "utf8", "base64");
             return finalize(iv.toString("base64"), data + cipher.final("base64"));
         } catch (e) {
@@ -32,10 +35,10 @@ export default (secret) => {
         }
     };
 
-    const decode = (str) => {
+    const decode = (str, pwd = false) => {
         try {
             str = reverse(str);
-            const decipher = crypto.createDecipheriv("aes-128-cbc", secret, recreateIv(str));
+            const decipher = crypto.createDecipheriv("aes-128-cbc", pwd ? pwdSecret : tokenSecret, recreateIv(str));
             const data = decipher.update(recreateData(str), "base64", "utf8");
             return data + decipher.final("utf8");
         } catch (e) {

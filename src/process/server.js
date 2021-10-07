@@ -1,7 +1,7 @@
 import serverFactory from "fastify";
 import serverCookiePlugin from "fastify-cookie";
 
-import routerFactory from "../util/router.js";
+import routerFactory from "../route/router.js";
 
 export default async (config, rootLogger) => {
     const logger = rootLogger.child({ process: "worker" });

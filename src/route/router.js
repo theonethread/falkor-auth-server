@@ -1,11 +1,6 @@
-import authFactory from "./auth.js";
+import authFactory from "../util/auth.js";
 
-const extend = (base, ...extraParams) => {
-    if (extraParams) {
-        return Object.assign({}, base, ...extraParams);
-    }
-    return base;
-};
+const extend = (base, ...extraParams) => (extraParams ? Object.assign({}, base, ...extraParams) : base);
 
 export default async (config, logger) => {
     const auth = await authFactory(config, logger);
@@ -85,7 +80,7 @@ export default async (config, logger) => {
     };
 
     const validate = async (request, response) => {
-        const permissions = auth.validateToken(request.hostname, request?.cookies[config.cookieName]);
+        const permissions = request.cookies && auth.validateToken(request.hostname, request.cookies[config.cookieName]);
         if (permissions) {
             response
                 .code(200)
@@ -108,7 +103,7 @@ export default async (config, logger) => {
     };
 
     const login = async (request, response) => {
-        const permissions = await auth.getPermissions(request.hostname, request.body.user, request.body.pass);
+        const permissions = await auth.getPermission(request.hostname, request.body.user, request.body.pass);
         if (permissions) {
             response
                 .header(config.authHeaderUser, permissions.user)

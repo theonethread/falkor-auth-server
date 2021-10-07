@@ -25,6 +25,7 @@
     const status = document.getElementById("whoStatus");
     whoButton.addEventListener("click", async () => {
       const resp = await fetch("https://falkor.boredom.cloud/api/v1/validate", {
+        credentials: "include",
         redirect: "error" // NOTE: only error pages redirect to static handlers
       }).catch((err) => console.log("Validation fetch failed.\n" + err));
       if (resp?.ok) {

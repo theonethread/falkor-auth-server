@@ -39,7 +39,7 @@ Options:
 * `-H <host>` or `--host <host>`: Host of the server (default: `0.0.0.0`)
 * `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_cloud_token`)
 * `-t <ttl>` or `--ttl <ttl>`: Cookie TTL (default: `14400`)
-* `-s <secret>` or `--secret <secret>`: 16 characters long secret for token encryption
+* `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
 * `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
@@ -59,7 +59,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
 * `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_cloud_token`)
 * `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
-* `AUTH_SECRET=<secret>`: 16 characters long secret for token encryption
+* `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
 * `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
@@ -98,7 +98,7 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 ```javascript
 {
     name: { type: "string" }
-    pass: { type: "string" }
+    pwd: { type: "string" }
     roles: {
         type: "array",
         items: { type: "string" }
@@ -120,6 +120,18 @@ users:
 > _**SEE**: [`auth.yml`](res/auth.yml "Open")_
 
 ## **Development**
+
+### **Compiling**
+
+The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Open") module to compile sources. You can run:
+
+```
+$ npm run [debug|release]
+```
+
+> _**SEE**: [`package.json`](package.json "Open")_
+
+> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`._
 
 ### **Man Page**
 
