@@ -50,7 +50,7 @@ Options:
     -H <host>, --host <host>        Host of the server  [default: 0.0.0.0]
     -c <cookie>, --cookie <cookie>  Cookie name  [default: @falkor_cloud_token]
     -t <ttl>, --ttl <ttl>           Cookie TTL  [default: 14400]
-    -s <secret>, --secret <secret>  16 characters long secret for token encryption
+    -s <secret>, --secret <secret>  32 characters long secret for token and password encryption
     -u <user>, --user <user>        User response header name  [default: X-Falkor-User]
     -r <role>, --role <role>        Role response header name  [default: X-Falkor-Role]
     -D <db>, --db <db>              User database, either "mongodb+srv://" address, or relative path to .yml file

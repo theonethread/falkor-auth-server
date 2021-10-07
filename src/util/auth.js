@@ -16,13 +16,26 @@ export default async (config, logger) => {
 
     const crypto = cryptoFactory(config.authSecret);
 
-    const getPermissions = async (hostname, user, pass) => {
+    const getPermission = async (hostname, user, pass) => {
         if (!user || !pass) {
             return null;
         }
 
         const u = await db.getUserData(user);
-        if (u?.pass === pass) {
+        let valid = false;
+        if (db.mode === "file") {
+            valid = u?.pass === pass;
+        } else {
+            //#if _DEBUG
+            if (u?.pass) {
+                logger.debug({ msg: "updating pwd", user });
+                u.pwd = await crypto.encode(u.pass, true);
+                u.pwd && (await db.updateUserData(user, u.pwd));
+            }
+            //#endif
+            valid = u?.pwd && crypto.decode(u.pwd, true) === pass;
+        }
+        if (valid) {
             const joinedRoles = u.roles.join(roleJoiner);
             return {
                 user,
@@ -57,7 +70,7 @@ export default async (config, logger) => {
     };
 
     return {
-        getPermissions,
+        getPermission,
         validateToken
     };
 };
