@@ -37,8 +37,8 @@ Usage:
     falkor-auth-server [(--id <id>)] [(--port <port>)] [(--domain <domain>)] [(--host <host>)] [(--cookie <cookie>)]
         [(--ttl <ttl>)] [(--secret <secret>)] [(--user <user>)] [(--role <role>)] [(--db <db>)] [(--stamp <stamp>)]
         [(--level <level>)] [(--file <file>)]
-    falkor-auth-server [(--i <id>)] [(--p <port>)] [(--d <domain>)] [(--H <host>)] [(--c <cookie>)][(--t <ttl>)] 
-        [(--s <secret>)] [(--u <user>)] [(--r <role>)] [(--D <db>)] [(--S <stamp>)] [(--l <level>)] [(--f <file>)]
+    falkor-auth-server [(-i <id>)] [(-p <port>)] [(-d <domain>)] [(-H <host>)] [(-c <cookie>)][(-t <ttl>)] 
+        [(-s <secret>)] [(-u <user>)] [(-r <role>)] [(-D <db>)] [(-S <stamp>)] [(-l <level>)] [(-f <file>)]
     falkor-auth-server (-v | --version | -h | --help)
 
 Options:
@@ -73,7 +73,7 @@ if (!config.authDb) {
 }
 
 if (!config.authSecret) {
-    throw "Error: 16 characters long secret must be set (-s, --secret, AUTH_SECRET)";
+    throw "Error: 32 characters long secret must be set (-s, --secret, AUTH_SECRET)";
 }
 
 let destination = undefined;

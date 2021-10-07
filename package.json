@@ -18,7 +18,11 @@
   ],
   "type": "module",
   "main": ".dist/index.js",
-  "bin": ".dist/index.js",
+  "bin": {
+    "falkor-auth-server": ".dist/index.js",
+    "falkor-auth-passwd": ".dist/passwd.js"
+  },
+  "shared": ".dist/util/crypto.js",
   "files": [
     ".dist",
     ".man",
@@ -30,11 +34,12 @@
     "npm": ">=6"
   },
   "scripts": {
-    "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL\" --input src/index.js",
-    "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js",
-    "man": "pandoc --version && (mkdir .man || echo folder exists) && rimraf .man/**/* && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1",
+    "debug": "rimraf .dist/**/* && falkor-bundler --debug --context #LOCAL --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util",
+    "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util",
+    "man": "pandoc --version && (mkdir .man || echo folder exists) && rimraf .man/**/* && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1 && pandoc --standalone --to man ./man/passwd.md --output ./.man/falkor-auth-passwd.1",
     "prepublishOnly": "npm run release && npm run man",
-    "start": "node .dist/index.js"
+    "start": "node .dist/index.js",
+    "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
     "@types/node": "14.17.6",

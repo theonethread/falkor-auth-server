@@ -106,6 +106,14 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 }
 ```
 
+The `pwd` entry must be an encoded password hash. To generate one with the application's `crypto` library, run from the project's root:
+
+```
+$ npm run passwd -- --secret <your-secret> --password <your-password>
+```
+
+> _**NOTE**: Since randomization, you will get different value running this command multiple times._
+
 ### **YAML**
 
 If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
@@ -135,7 +143,7 @@ $ npm run [debug|release]
 
 ### **Man Page**
 
-By default the `falkor-auth-server` project ships with a pre-compiled man page when installed on Unix-like operating systems. The manual was created by converting the file [`man/man.md`](man/man.md "Open").
+By default the `falkor-auth-server` project ships with a pre-compiled man page when installed on Unix-like operating systems. The manual was created by converting the files [`man/man.md`](man/man.md "Open") and [`man/passwd.md`](man/passwd.md "Open").
 
 To recompile the manual, make sure that [`Pandoc`](https://pandoc.org/ "Visit") is installed, and present in the `PATH`, then run:
 
