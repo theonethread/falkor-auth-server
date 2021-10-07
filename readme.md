@@ -98,7 +98,7 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 ```javascript
 {
     name: { type: "string" }
-    pass: { type: "string" }
+    pwd: { type: "string" }
     roles: {
         type: "array",
         items: { type: "string" }
@@ -120,6 +120,18 @@ users:
 > _**SEE**: [`auth.yml`](res/auth.yml "Open")_
 
 ## **Development**
+
+### **Compiling**
+
+The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Open") module to compile sources. You can run:
+
+```
+$ npm run [debug|release]
+```
+
+> _**SEE**: [`package.json`](package.json "Open")_
+
+> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`._
 
 ### **Man Page**
 
