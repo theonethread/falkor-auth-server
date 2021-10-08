@@ -112,7 +112,7 @@ The `pwd` entry must be an encoded password hash. To generate one with the appli
 $ npm run passwd -- --secret <your-secret> --password <your-password>
 ```
 
-> _**NOTE**: Since randomization, you will get different value running this command multiple times._
+> _**NOTE**: Since randomization, you will get different values running this command multiple times._
 
 ### **YAML**
 
