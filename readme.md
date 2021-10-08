@@ -127,9 +127,7 @@ users:
 
 > _**SEE**: [`auth.yml`](res/auth.yml "Open")_
 
-## **Development**
-
-### **Compiling**
+## **Further Development**
 
 The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Open") module to compile sources. You can run:
 
