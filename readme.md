@@ -1,4 +1,4 @@
-# **[Falkor] Authentication Server**
+# **Falkor Authentication Server**
 
 ```javascript
 // Work IN Progress
