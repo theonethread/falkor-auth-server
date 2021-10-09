@@ -4,17 +4,29 @@ import cryptoFactory from "./crypto.js";
 const tokenJoiner = "#";
 const roleJoiner = ":";
 
-export default async (config, logger) => {
+export default async (config, rootLogger) => {
     let db;
+    let crypto;
     if (/^mongodb\+srv:\/\//.test(config.authDb)) {
         const mongoDbModule = await import("../db/mongo.js");
-        db = await mongoDbModule.default(config, logger);
+        db = await mongoDbModule.default(config, rootLogger);
     } else {
         const fileDbModule = await import("../db/file.js");
-        db = await fileDbModule.default(config, logger);
+        db = await fileDbModule.default(config, rootLogger);
     }
 
-    const crypto = cryptoFactory(config.authSecret);
+    if (!db) {
+        rootLogger.warn("auth module db failure");
+        return null;
+    }
+
+    try {
+        crypto = cryptoFactory(config.authSecret);
+    } catch (e) {
+        logger.debug(e);
+        rootLogger.warn("auth module crypto failure");
+        return null;
+    }
 
     const getPermission = async (hostname, user, pass) => {
         if (!user || !pass) {
@@ -26,9 +38,9 @@ export default async (config, logger) => {
         if (db.mode === "file") {
             valid = u?.pass === pass;
         } else {
-            //#if _DEBUG
+            //#if _UPDATE_PWD
             if (u?.pass) {
-                logger.debug({ msg: "updating pwd", user });
+                rootLogger.debug({ msg: "updating pwd", user });
                 u.pwd = await crypto.encode(u.pass, true);
                 u.pwd && (await db.updateUserData(user, u.pwd));
             }

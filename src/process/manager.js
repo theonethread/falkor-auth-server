@@ -6,7 +6,7 @@ export default (config, rootLogger) => {
     logger.debug({ config });
 
     const cpuCount = os.cpus().length;
-    const processCount = Math.max(1, Math.floor(cpuCount / 2));
+    const processCount = /*#if _DEBUG*/ 1 || /*#endif*/ Math.max(1, Math.floor(cpuCount / 2));
     const workers = {};
     let onlineCount = 0;
 
@@ -27,7 +27,7 @@ export default (config, rootLogger) => {
 
         if (init) {
             w.once("message", (msg) => {
-                if (init && msg.status === "ready" && onlineCount < processCount) {
+                if (msg.status === "ready" && onlineCount < processCount) {
                     onlineCount++;
                     if (onlineCount === processCount) {
                         logger.info({ status: "ready" });
@@ -37,6 +37,11 @@ export default (config, rootLogger) => {
                         console.log("[falkor-auth-server] ready");
                         //#endif
                     }
+                }
+                if (msg.status === "failure") {
+                    logger.warn("exiting on child process failure");
+                    cluster.removeAllListeners();
+                    process.exit(1);
                 }
                 w.on("message", (msg) => propagate(msg, wPid));
             });
@@ -58,7 +63,7 @@ export default (config, rootLogger) => {
     cluster.on("exit", (worker, code, signal) => {
         const wPid = worker.process.pid.toString();
         logger.warn({
-            status: "worker-exit",
+            msg: "worker exit",
             pid: wPid,
             code: code,
             signal: signal
@@ -69,13 +74,13 @@ export default (config, rootLogger) => {
 
     cluster.on("online", (worker) => {
         logger.info({
-            status: "worker-online",
+            msg: "worker online",
             pid: worker.process.pid
         });
     });
 
     logger.info({
-        status: "init",
+        msg: "init",
         cpu: cpuCount,
         fork: processCount
     });

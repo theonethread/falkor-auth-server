@@ -6,6 +6,14 @@ import routerFactory from "../route/router.js";
 export default async (config, rootLogger) => {
     const logger = rootLogger.child({ process: "worker" });
     const router = await routerFactory(config, logger);
+    if (!router) {
+        logger.warn("server module failure");
+        if (process.env.CLUSTER_INIT) {
+            process.send({ status: "failure" });
+        }
+        return null;
+    }
+
     const server = serverFactory({
         disableRequestLogging: true,
         logger

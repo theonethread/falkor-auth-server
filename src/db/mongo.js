@@ -2,8 +2,15 @@ import { MongoClient } from "mongodb";
 
 export default async (config, logger) => {
     const client = new MongoClient(config.authDb, { useNewUrlParser: true, useUnifiedTopology: true });
-    await client.connect();
-    const userCollection = client.db("authentication").collection("users");
+    let userCollection;
+    try {
+        await client.connect();
+        userCollection = client.db("authentication").collection("users");
+    } catch (e) {
+        logger.debug(e);
+        logger.warn("mongo module failure");
+        return null;
+    }
 
     return {
         mode: "mongo",

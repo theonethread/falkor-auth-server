@@ -4,6 +4,10 @@ const extend = (base, ...extraParams) => (extraParams ? Object.assign({}, base, 
 
 export default async (config, logger) => {
     const auth = await authFactory(config, logger);
+    if (!auth) {
+        logger.warn("router module failure");
+        return null;
+    }
 
     const defaultCookieOptions = {
         httpOnly: true,
@@ -93,6 +97,10 @@ export default async (config, logger) => {
                     })
                 );
         } else {
+            request.log.info({
+                msg: "validation failure",
+                ip: request.ips || request.ip
+            });
             response
                 .code(401)
                 .header(config.authHeaderUser, "")
@@ -117,6 +125,10 @@ export default async (config, logger) => {
                 );
             return;
         }
+        request.log.info({
+            msg: "login failure",
+            ip: request.ips || request.ip
+        });
         response
             .status(401)
             .header(config.authHeaderUser, "")

@@ -137,7 +137,7 @@ $ npm run [debug|release]
 
 > _**SEE**: [`package.json`](package.json "Open")_
 
-> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`._
+> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](package.json "Open")._
 
 ### **Man Page**
 

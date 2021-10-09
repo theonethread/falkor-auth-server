@@ -33,7 +33,7 @@
     "npm": ">=6"
   },
   "scripts": {
-    "debug": "rimraf .dist/**/* && falkor-bundler --debug --context #LOCAL --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util",
+    "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL #UPDATE_PWD\" --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util",
     "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util",
     "man": "pandoc --version && (mkdir .man || echo folder exists) && rimraf .man/**/* && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1 && pandoc --standalone --to man ./man/passwd.md --output ./.man/falkor-auth-passwd.1",
     "prepublishOnly": "npm run release && npm run man",

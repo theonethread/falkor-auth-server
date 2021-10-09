@@ -3,6 +3,6 @@ users:
       pass: admin
       roles:
           - admin
-          - operation
-          - product
-          - development
+          - ops
+          - prod
+          - dev
