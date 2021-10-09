@@ -13,6 +13,7 @@ export default async (config, logger) => {
 
     return {
         mode: "file",
+        updateUserData: async () => void 0,
         getUserData: async (user) => userData.find((u) => u.user === user)
     };
 };
