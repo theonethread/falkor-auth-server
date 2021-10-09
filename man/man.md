@@ -42,7 +42,7 @@ The **falkor-auth-server** project is a standalone npm command-line application 
 :   Host of the server  (default: **0.0.0.0**)
 
 `-c <cookie>`, `--cookie <cookie>`
-:   Cookie name  (default: **@falkor_cloud_token**)
+:   Cookie name  (default: **@falkor_token**)
 
 `-t <ttl>`, `--ttl <ttl>`
 :   Cookie TTL  (default: **14400**)

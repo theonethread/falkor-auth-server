@@ -37,7 +37,7 @@ Options:
 * `-p <port>` or `--port <port>`: Port of server (default: `9999`)
 * `-d <domain>` or `--domain <domain>`: Domain of the cookies to set
 * `-H <host>` or `--host <host>`: Host of the server (default: `0.0.0.0`)
-* `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_cloud_token`)
+* `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_token`)
 * `-t <ttl>` or `--ttl <ttl>`: Cookie TTL (default: `14400`)
 * `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
@@ -57,7 +57,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `SERVER_PORT=<port>`: Port of server (default: `9999`)
 * `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
 * `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
-* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_cloud_token`)
+* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_token`)
 * `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
 * `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)

@@ -48,7 +48,7 @@ Options:
     -p <port>, --port <port>        Port of server  [default: 9999]
     -d <domain>, --domain <domain>  Domain of the cookies to set
     -H <host>, --host <host>        Host of the server  [default: 0.0.0.0]
-    -c <cookie>, --cookie <cookie>  Cookie name  [default: @falkor_cloud_token]
+    -c <cookie>, --cookie <cookie>  Cookie name  [default: @falkor_token]
     -t <ttl>, --ttl <ttl>           Cookie TTL  [default: 14400]
     -s <secret>, --secret <secret>  32 characters long secret for token and password encryption
     -u <user>, --user <user>        User response header name  [default: X-Falkor-User]
