@@ -4,19 +4,19 @@
 
 # NAME
 
-**falkor-auth-passwd** - Falkor passwd generator - part of the **Falkor Framework**
+**falkor-auth-passwd** - Falkor password hash generator - part of the **Falkor Framework**
 
 # SYNOPSIS
 
 ```
 falkor-auth-passwd (--password <password>) (--secret <secret>)
 falkor-auth-passwd (-p <password>) (-s <secret>)
-falkor-auth-server (-v | --version | -h | --help)
+falkor-auth-passwd (-v | --version | -h | --help)
 ```
 
 # DESCRIPTION
 
-The **falkor-auth-server** project is a standalone npm command-line application written in TypeScript to be used as an nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
+The **falkor-auth-passwd** project is a standalone npm command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords to be stored in the database.
 
 # OPTIONS
 
