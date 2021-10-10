@@ -160,9 +160,9 @@ $ npm run [debug|release]
 
 ### **Man Page**
 
-By default the `falkor-auth-server` project ships with a pre-compiled man pages when installed on Unix-like operating systems. The manual was created by converting the files [`man/man.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/man.md "Open") and [`man/passwd.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/passwd.md "Open").
+By default the `falkor-auth-server` project ships with pre-compiled man pages when installed on Unix-like operating systems. The manuals were created by converting the files [`man/man.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/man.md "Open") and [`man/passwd.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/passwd.md "Open").
 
-To recompile the manual, make sure that [`Pandoc`](https://pandoc.org/ "Visit") is installed, and present in the `PATH`, then run:
+To recompile the manuals, make sure that [`Pandoc`](https://pandoc.org/ "Visit") is installed, and present in the `PATH`, then run:
 
 ```
 $ npm run man
