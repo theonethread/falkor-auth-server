@@ -18,6 +18,8 @@ $ npm install --global "@falkor/falkor-auth-server"
 
 ### **Command Line Interface**
 
+#### `falkor-auth-server`
+
 Usage:
 
 ```
@@ -68,6 +70,23 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
 > _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
+
+#### `falkor-auth-passwd`
+
+Usage:
+
+```
+falkor-auth-passwd (--password <password>) (--secret <secret>)
+falkor-auth-passwd (-p <password>) (-s <secret>)
+falkor-auth-passwd (-v | --version | -h | --help)
+```
+
+Options:
+
+`-v` or `--version`: Show version and exit
+`-h` or `--help`: Show this screen and exit
+`-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
+`-p <password>` or `--password <password>`: Password to create encrypted hash for
 
 ### **Must Have Settings**
 
@@ -148,6 +167,14 @@ To recompile the manual, make sure that [`Pandoc`](https://pandoc.org/ "Visit") 
 ```
 $ npm run man
 ```
+
+### **Version History**
+
+* `development`
+    * [GitHub](https://github.com/theonethread/falkor-auth-server "Visit")
+* `1.0.0-beta.0`
+    * [npmjs](https://www.npmjs.com/package/@falkor/falkor-auth-server/v/1.0.0-beta.0 "Visit")
+    * [GitHub](https://github.com/theonethread/falkor-auth-server/tree/v1.0.0-beta.0 "Visit")
 
 ### **Open Source**
 
