@@ -8,7 +8,6 @@
   ],
   "license": "MIT",
   "repository": "github:theonethread/falkor-auth-server",
-  "private": true,
   "keywords": [
     "falkor",
     "nginx",
