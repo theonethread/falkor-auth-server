@@ -47,7 +47,7 @@ Options:
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE**: [`config.js`](src/util/config.js "Open")_
+> _**SEE**: [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
 
 ### **Environment Variables**
 
@@ -67,7 +67,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE**: [`config.env`](res/config.env "Open")_
+> _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
 
 ### **Must Have Settings**
 
@@ -125,23 +125,23 @@ users:
       roles: [ string ]
 ```
 
-> _**SEE**: [`auth.yml`](res/auth.yml "Open")_
+> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
 
 ## **Further Development**
 
-The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Open") module to compile sources. You can run:
+The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") module to compile sources. You can run:
 
 ```
 $ npm run [debug|release]
 ```
 
-> _**SEE**: [`package.json`](package.json "Open")_
+> _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
-> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](package.json "Open")._
+> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")._
 
 ### **Man Page**
 
-By default the `falkor-auth-server` project ships with a pre-compiled man page when installed on Unix-like operating systems. The manual was created by converting the files [`man/man.md`](man/man.md "Open") and [`man/passwd.md`](man/passwd.md "Open").
+By default the `falkor-auth-server` project ships with a pre-compiled man page when installed on Unix-like operating systems. The manual was created by converting the files [`man/man.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/man.md "Open") and [`man/passwd.md`](https://github.com/theonethread/falkor-auth-server/blob/master/man/passwd.md "Open").
 
 To recompile the manual, make sure that [`Pandoc`](https://pandoc.org/ "Visit") is installed, and present in the `PATH`, then run:
 
@@ -152,5 +152,9 @@ $ npm run man
 ### **Open Source**
 
 You can always find the latest sources on [GitHub](https://github.com/theonethread/falkor-auth-server "Visit").
+
+### **License**
+
+[MIT](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Open")
 
 _©2020-2021 Barnabas Bucsy - All rights reserved._
