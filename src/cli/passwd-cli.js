@@ -1,20 +1,14 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import shell from "shelljs";
-
-const retrieveOwnVersion = () =>
-    // NOTE: can't use __dirname in es module
-    JSON.parse(shell.cat(path.join(path.dirname(fileURLToPath(import.meta.url)), "../package.json"))).version;
+import version from "./version.js";
 
 export default (short = false) => {
     if (short) {
-        console.log("falkor-auth-passwd version", retrieveOwnVersion());
+        console.log("falkor-auth-passwd version", version());
         return;
     }
 
     console.log(`
 [Falkor Authentication Passwd Generator]
-version ${retrieveOwnVersion()}
+version ${version()}
 (C)2020-2021 Barnabas Bucsy - All rights reserved.
 
 Falkor authentication password hash generator - part of the Falkor Framework

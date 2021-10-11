@@ -5,11 +5,11 @@ import cryptoFactory from "./util/crypto.js";
 
 const argv = minimist(process.argv.slice(2));
 if (argv.v || argv.version) {
-    (await import("./passwd-cli.js")).default(true);
+    (await import("./cli/passwd-cli.js")).default(true);
     process.exit(0);
 }
 if (argv.h || argv.help) {
-    (await import("./passwd-cli.js")).default();
+    (await import("./cli/passwd-cli.js")).default();
     process.exit(0);
 }
 
