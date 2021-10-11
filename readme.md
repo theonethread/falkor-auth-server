@@ -148,7 +148,7 @@ users:
 
 ## **Server Setup**
 
-To set up a Fedora webserver for using the authentication service you can follow my tutorials on the Hetzner Community:
+To set up a Fedora webserver using Node.js authentication service you can follow my tutorials in the Hetzner Community:
 
 * [Setting Up a Secure Fedora Webserver](https://community.hetzner.com/tutorials/secure-fedora-webserver "Visit")
 * [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") (under review)
