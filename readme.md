@@ -125,7 +125,13 @@ If the DB option starts with `mongodb+srv://`, the application will assume the f
 }
 ```
 
-The `pwd` entry must be an encoded password hash. To generate one with the application's `crypto` library, run from the project's root:
+The `pwd` entry must be an encoded password hash. To generate one with the application's `crypto` library, with a global install run:
+
+```
+$ falkor-auth-passwd --secret <your-secret> --password <your-password>
+```
+
+Or from the project's root:
 
 ```
 $ npm run passwd -- --secret <your-secret> --password <your-password>
