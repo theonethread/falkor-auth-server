@@ -158,7 +158,7 @@ To set up a Fedora-based Nginx webserver using Node.js authentication service yo
 The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") module to compile sources. You can run:
 
 ```
-$ npm run [debug|release]
+$ npm run [ debug | release ]
 ```
 
 > _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
