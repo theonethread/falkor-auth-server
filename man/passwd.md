@@ -16,7 +16,7 @@ falkor-auth-passwd (-v | --version | -h | --help)
 
 # DESCRIPTION
 
-The **falkor-auth-passwd** project is a standalone npm command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords to be stored in the database.
+The **falkor-auth-passwd** project is a standalone npm command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
 
 # OPTIONS
 

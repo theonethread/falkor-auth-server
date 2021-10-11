@@ -20,7 +20,7 @@ if (argv.h || argv.help) {
 version ${retrieveOwnVersion()}
 (C)2020-2021 Barnabas Bucsy - All rights reserved.
 
-Falkor authentication passwd generator - part of the Falkor Framework
+Falkor authentication password hash generator - part of the Falkor Framework
 
 Usage:
     falkor-auth-passwd (--password <password>) (--secret <secret>)
