@@ -1,14 +1,14 @@
-import version from "./version.js";
+import getOwnVersion from "./version.js";
 
 export default (short = false) => {
     if (short) {
-        console.log("falkor-auth-server version", version());
+        console.log("falkor-auth-server version", getOwnVersion());
         return;
     }
 
     console.log(`
 [Falkor Authentication Server]
-version ${version()}
+version ${getOwnVersion()}
 (C)2020-2021 Barnabas Bucsy - All rights reserved.
 
 Falkor Nginx authentication preflight proxy server - part of the Falkor Framework

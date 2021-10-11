@@ -1,14 +1,14 @@
-import version from "./version.js";
+import getOwnVersion from "./version.js";
 
 export default (short = false) => {
     if (short) {
-        console.log("falkor-auth-passwd version", version());
+        console.log("falkor-auth-passwd version", getOwnVersion());
         return;
     }
 
     console.log(`
 [Falkor Authentication Passwd Generator]
-version ${version()}
+version ${getOwnVersion()}
 (C)2020-2021 Barnabas Bucsy - All rights reserved.
 
 Falkor authentication password hash generator - part of the Falkor Framework

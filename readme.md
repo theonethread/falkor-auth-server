@@ -4,7 +4,7 @@
 // Work In Progress
 ```
 
-The `falkor-auth-server` project is a standalone npm command-line application written in JavaScript to be used as an Nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
+The `falkor-auth-server` project is a standalone `npm` command-line application written in JavaScript to be used as an Nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
 
 ## **Installation**
 
@@ -72,6 +72,8 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 > _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
 
 #### `falkor-auth-passwd`
+
+The accompanying `falkor-auth-passwd` project is also standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
 
 Usage:
 
