@@ -131,7 +131,7 @@ The `pwd` entry must be an encoded password hash. To generate one with the appli
 $ falkor-auth-passwd --secret <your-secret> --password <your-password>
 ```
 
-Or from the project's root:
+Or from the installed project's root:
 
 ```
 $ npm run passwd -- --secret <your-secret> --password <your-password>
