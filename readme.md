@@ -84,7 +84,7 @@ falkor-auth-passwd (-v | --version | -h | --help)
 Options:
 
 `-v` or `--version`: Show version and exit
-`-h` or `--help`: Show this screen and exit
+`-h` or `--help`: Show help and exit
 `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 `-p <password>` or `--password <password>`: Password to create encrypted hash for
 
