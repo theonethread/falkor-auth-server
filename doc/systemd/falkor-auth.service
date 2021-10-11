@@ -7,9 +7,9 @@ Type=simple
 Restart=on-failure
 RestartSec=5
 User=root
-EnvironmentFile=/usr/local/lib/falkor-auth-server/res/config.env
-WorkingDirectory=/usr/local/lib/falkor-auth-server/
-ExecStart=/usr/local/lib/falkor-auth-server/.dist/index.js
+EnvironmentFile=/usr/local/etc/falkor/falkor-auth-server.env
+# WorkingDirectory=/usr/local/lib/node_modules/@falkor/falkor-auth-server/
+ExecStart=falkor-auth-server
 
 [Install]
 WantedBy=multi-user.target
