@@ -1,38 +1,15 @@
 import path from "path";
-import { fileURLToPath } from "url";
 import shell from "shelljs";
 import minimist from "minimist";
 import cryptoFactory from "./util/crypto.js";
 
 const argv = minimist(process.argv.slice(2));
-
-const retrieveOwnVersion = () =>
-    // NOTE: can't use __dirname in es module
-    JSON.parse(shell.cat(path.join(path.dirname(fileURLToPath(import.meta.url)), "../package.json"))).version;
-
 if (argv.v || argv.version) {
-    console.log("falkor-auth-passwd version", retrieveOwnVersion());
+    (await import("./passwd-cli.js")).default(true);
     process.exit(0);
 }
 if (argv.h || argv.help) {
-    console.log(`
-[Falkor Authentication Passwd Generator]
-version ${retrieveOwnVersion()}
-(C)2020-2021 Barnabas Bucsy - All rights reserved.
-
-Falkor authentication password hash generator - part of the Falkor Framework
-
-Usage:
-    falkor-auth-passwd (--password <password>) (--secret <secret>)
-    falkor-auth-passwd (-p <password>) (-s <secret>)
-    falkor-auth-passwd (-v | --version | -h | --help)
-
-Options:
-    -v, --version                         Show version and exit
-    -h, --help                            Show this screen and exit
-    -s <secret>, --secret <secret>        32 characters long secret for token and password encryption
-    -p <password>, --password <password>  Password to create encrypted hash for
-`);
+    (await import("./passwd-cli.js")).default();
     process.exit(0);
 }
 
