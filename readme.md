@@ -106,7 +106,7 @@ The following settings must be present either running the application with CLI o
 
 ## **User Data**
 
-Currently the server supports `.yml` file based authentication, or connecting to a MongoDB instance.
+Currently the server supports connecting to a MongoDB instance, or `.yml` file based authentication when compiled in debug mode for local testing.
 
 ### **MongoDB**
 
@@ -143,7 +143,7 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 ### **YAML**
 
-If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
+If compiled in debug mode and the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
 
 ```yaml
 users:
