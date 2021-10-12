@@ -14,7 +14,7 @@ export default async (config, logger) => {
 
     return {
         mode: "mongo",
-        //#if _DEBUG
+        //#if _UPDATE_PWD
         updateUserData: async (user, pwd) =>
             await userCollection.updateOne(
                 { user },
