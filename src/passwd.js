@@ -1,5 +1,3 @@
-import path from "path";
-import shell from "shelljs";
 import minimist from "minimist";
 import cryptoFactory from "./util/crypto.js";
 
