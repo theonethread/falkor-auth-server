@@ -9,6 +9,7 @@
     "theonethread",
     "unencrypted",
     "hetzner",
-    "npmjs"
+    "npmjs",
+    "snyk"
   ]
 }
