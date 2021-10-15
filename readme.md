@@ -1,6 +1,11 @@
 # **Falkor Authentication Server**
 
-[![Vulnerabilities](https://snyk.io/test/github/theonethread/falkor-auth-server/badge.svg "snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit")
+[![Npm Keywords](https://img.shields.io/github/package-json/keywords/theonethread/falkor-auth-server "Keywords")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
+[![Npm Package](https://img.shields.io/npm/v/@falkor/falkor-auth-server "Npm")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
+[![Node Version](https://img.shields.io/node/v/@falkor/falkor-auth-server "Node")](https://nodejs.org/ "Visit") &nbsp;
+[![Falkor Bundler](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/dev/@falkor/falkor-bundler Falkor Bundler)](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") &nbsp;
+[![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/theonethread/falkor-auth-server "Snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit") &nbsp;
+[![License](https://img.shields.io/npm/l/@falkor/falkor-auth-server "MIT")](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Visit")
 
 ```javascript
 // Work In Progress
