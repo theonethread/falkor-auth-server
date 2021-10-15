@@ -1,5 +1,7 @@
 # **Falkor Authentication Server**
 
+![Vulnerabilities](https://snyk.io/test/github/theonethread/falkor-auth-server/badge.svg)
+
 ```javascript
 // Work In Progress
 ```
@@ -73,7 +75,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 
 #### `falkor-auth-passwd`
 
-The accompanying `falkor-auth-passwd` binary is also standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
+The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
 
 Usage:
 
