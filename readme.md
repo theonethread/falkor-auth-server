@@ -1,6 +1,6 @@
 # **Falkor Authentication Server**
 
-![Vulnerabilities](https://snyk.io/test/github/theonethread/falkor-auth-server/badge.svg)
+[![Vulnerabilities](https://snyk.io/test/github/theonethread/falkor-auth-server/badge.svg)](https://snyk.io/test/github/theonethread/falkor-auth-server)
 
 ```javascript
 // Work In Progress
