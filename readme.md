@@ -52,7 +52,7 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
+* `-D <db>` or `--db <db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
@@ -108,13 +108,13 @@ The following settings must be present either running the application with CLI o
 * 16 characters long secret for token encryption:
     * `-s <secret>` or `--secret <secret>`
     * `AUTH_SECRET=<secret>`
-* User database, either `mongodb+srv://` address, or relative path to `.yml` file:
+* User database address (or relative path to `.yml` file in `debug` builds):
     * `-D <db>` or `--db <db>`
     * `AUTH_DB=<db>`
 
 ## **User Data**
 
-Currently the server supports connecting to a MongoDB instance, or `.yml` file based authentication when compiled in debug mode for local testing.
+Currently the server supports connecting to a MongoDB instance, or using a mock `.yml` file based authentication when compiled in `debug` mode for local testing.
 
 ### **MongoDB**
 
@@ -151,7 +151,7 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 ### **YAML**
 
-If compiled in debug mode and the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
+If compiled in `debug` mode and the DB option does not start with `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
 
 ```yaml
 users:
