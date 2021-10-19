@@ -43,10 +43,10 @@ jobs:
 
       - name: Bundle Custom Project
         run: |-
-          falkor-bundler ${{ github.event.inputs.cli }} --input src/index.js
-          falkor-bundler ${{ github.event.inputs.cli }} --input src/passwd.js
-          falkor-bundler ${{ github.event.inputs.cli }} --input src/util/crypto.js --out .dist/util
-          falkor-bundler ${{ github.event.inputs.cli }} --input src/cli/version.js --out .dist/cli
+          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/index.js
+          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/passwd.js
+          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/util/crypto.js --out .dist/util
+          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/cli/version.js --out .dist/cli
 
       - name: Build Manual
         if: ${{ matrix.os != 'windows-latest' }}
