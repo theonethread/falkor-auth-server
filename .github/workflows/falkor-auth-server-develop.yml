@@ -56,3 +56,8 @@ jobs:
         run: |-
           falkor-auth-server --help
           falkor-auth-passwd --help
+
+      - name: Get Executable Manual
+        run: |-
+          man falkor-auth-server | col -bx
+          man falkor-auth-passwd | col -bx

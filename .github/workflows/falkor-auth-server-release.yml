@@ -63,3 +63,9 @@ jobs:
         run: |-
           falkor-auth-server --help
           falkor-auth-passwd --help
+
+      - name: Get Executable Manual
+        if: ${{ matrix.os != 'windows-latest' }}
+        run: |-
+          man falkor-auth-server | col -bx
+          man falkor-auth-passwd | col -bx
