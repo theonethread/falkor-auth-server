@@ -57,7 +57,9 @@ jobs:
       - name: Get Executable Version
         run: |-
           falkor-auth-server --version
+          falkor-auth-passwd --version
 
       - name: Get Executable Hep
         run: |-
           falkor-auth-server --help
+          falkor-auth-passwd --help
