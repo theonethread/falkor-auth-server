@@ -10,10 +10,6 @@
 [![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/theonethread/falkor-auth-server "Snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit") &nbsp;
 [![License](https://img.shields.io/npm/l/@falkor/falkor-auth-server "MIT")](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Visit")
 
-```javascript
-// Work In Progress
-```
-
 The `falkor-auth-server` project is a standalone `npm` command-line application written in JavaScript to be used as an Nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
 
 ## **Installation**
