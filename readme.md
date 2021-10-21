@@ -70,7 +70,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
+* `AUTH_DB=<db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
 * `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
