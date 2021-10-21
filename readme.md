@@ -1,8 +1,14 @@
 # **Falkor Authentication Server**
 
-```javascript
-// Work In Progress
-```
+[![Npm Keywords](https://img.shields.io/github/package-json/keywords/theonethread/falkor-auth-server "Keywords")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
+[![Npm Package](https://img.shields.io/npm/v/@falkor/falkor-auth-server "Npm")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
+[![Node Version](https://img.shields.io/node/v/@falkor/falkor-auth-server "Node")](https://nodejs.org/ "Visit") &nbsp;
+[![CI](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Develop "CI")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
+[![Activity](https://img.shields.io/github/last-commit/theonethread/falkor-auth-server "Activity")](https://github.com/theonethread/falkor-auth-server "Visit") &nbsp;
+[![Falkor Bundler](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/dev/@falkor/falkor-bundler "Falkor Bundler")](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") &nbsp;
+[![Fastify](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/fastify "Fastify")](https://www.npmjs.com/package/fastify "Visit") &nbsp;
+[![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/theonethread/falkor-auth-server "Snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit") &nbsp;
+[![License](https://img.shields.io/npm/l/@falkor/falkor-auth-server "MIT")](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Visit")
 
 The `falkor-auth-server` project is a standalone `npm` command-line application written in JavaScript to be used as an Nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
 
@@ -44,7 +50,7 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
+* `-D <db>` or `--db <db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
@@ -73,7 +79,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 
 #### `falkor-auth-passwd`
 
-The accompanying `falkor-auth-passwd` binary is also standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
+The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
 
 Usage:
 
@@ -100,13 +106,13 @@ The following settings must be present either running the application with CLI o
 * 16 characters long secret for token encryption:
     * `-s <secret>` or `--secret <secret>`
     * `AUTH_SECRET=<secret>`
-* User database, either `mongodb+srv://` address, or relative path to `.yml` file:
+* User database address (or relative path to `.yml` file in `debug` builds):
     * `-D <db>` or `--db <db>`
     * `AUTH_DB=<db>`
 
 ## **User Data**
 
-Currently the server supports `.yml` file based authentication, or connecting to a MongoDB instance.
+Currently the server supports connecting to a MongoDB instance, or using a mock `.yml` file based authentication when compiled in `debug` mode for local testing.
 
 ### **MongoDB**
 
@@ -143,7 +149,7 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 ### **YAML**
 
-If the DB option does not start with `mongodb+srv://`, the application will assume relative path to a `.yml` file with the structure:
+If compiled in `debug` mode and the DB option does not start with `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
 
 ```yaml
 users:
@@ -159,7 +165,7 @@ users:
 To set up a Fedora-based Nginx webserver using Node.js as authentication service you can follow my tutorials in the Hetzner Community:
 
 * [Setting Up a Secure Fedora Webserver](https://community.hetzner.com/tutorials/secure-fedora-webserver "Visit")
-* [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") (under review)
+* [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") _(under review)_
 
 ## **Further Development**
 
@@ -183,23 +189,23 @@ To recompile the manuals, make sure that [`Pandoc`](https://pandoc.org/ "Visit")
 $ npm run man
 ```
 
-### **Version History**
+### **Versioning and Branching Strategy**
 
-* `development`
-    * [GitHub](https://github.com/theonethread/falkor-auth-server "Visit")
-* `1.0.0-beta.7`
-    * [npmjs](https://www.npmjs.com/package/@falkor/falkor-auth-server/v/1.0.0-beta.7 "Visit")
-    * [GitHub](https://github.com/theonethread/falkor-auth-server/releases/tag/v1.0.0-beta.7 "Visit")
-* `1.0.0-beta.6`
-    * [npmjs](https://www.npmjs.com/package/@falkor/falkor-auth-server/v/1.0.0-beta.6 "Visit")
-    * [GitHub](https://github.com/theonethread/falkor-auth-server/releases/tag/v1.0.0-beta.6 "Visit")
-* `1.0.0-beta.0`
-    * [npmjs](https://www.npmjs.com/package/@falkor/falkor-auth-server/v/1.0.0-beta.0 "Visit")
-    * [GitHub](https://github.com/theonethread/falkor-auth-server/releases/tag/v1.0.0-beta.0 "Visit")
+Release sources can be found on the `master` branch, this one always points to the latest tagged release. Previous sources of releases' can be found using Git version tags (or browsing GitHub releases). Released packages can be found on [npmjs](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit").
+
+The repository's main branch is `develop` (due to technical reasons), this holds all developments that are already decided to be included in the next release. Usually this branch is ahead of master one patch version (but based on upcoming features to include this can become minor, or major), so prepared external links may yet be broken.
+
+The `feature/*` branches usually hold ideas and POC code, these will only be merged into `develop` once their impact measured and quality meets release requirements.
+
+> _The project uses [SemVer](https://semver.org "Visit"), Git tags are prefixed with a `v` character._
+
+### **GitHub Actions**
+
+Automatic builds are achieved via GitHub actions, CI will make nightly builds of the `develop` branch (using Ubuntu image), and thoroughly test `master` when there is a pull request, or commit on it (using Ubuntu - Win - MacOS image matrix). The workflows can be found [here](https://github.com/theonethread/falkor-auth-server/blob/develop/.github/workflows "Open").
 
 ### **Open Source**
 
-You can always find the latest sources on [GitHub](https://github.com/theonethread/falkor-auth-server "Visit").
+The latest sources can always be found on [GitHub](https://github.com/theonethread/falkor-auth-server "Visit").
 
 ### **License**
 

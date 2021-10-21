@@ -7,13 +7,18 @@ const roleJoiner = ":";
 export default async (config, rootLogger) => {
     let db;
     let crypto;
+
+    //#if _DEBUG
     if (/^mongodb\+srv:\/\//.test(config.authDb)) {
+        //#endif
         const mongoDbModule = await import("../db/mongo.js");
         db = await mongoDbModule.default(config, rootLogger);
+        //#if _DEBUG
     } else {
         const fileDbModule = await import("../db/file.js");
         db = await fileDbModule.default(config, rootLogger);
     }
+    //#endif
 
     if (!db) {
         rootLogger.warn("auth module db failure");
