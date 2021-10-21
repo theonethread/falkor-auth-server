@@ -53,7 +53,7 @@
       }).catch((err) => enableUi("Login fetch failed.\n" + err));
       if (resp?.ok) {
         redirectUrl = new URLSearchParams(window.location.search).get("url");
-        if (redirectUrl && /^https:\/\/([a-zA-Z0-9]\.)?boredom.cloud\//.test(redirectUrl)) {
+        if (redirectUrl && /^https:\/\/([^.]*\.)?boredom.cloud\//.test(redirectUrl)) {
           document.location = redirectUrl;
         } else {
           enableUi("Logged in.");
