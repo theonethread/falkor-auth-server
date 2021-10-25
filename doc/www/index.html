@@ -52,9 +52,13 @@
         body: JSON.stringify(disableUi())
       }).catch((err) => enableUi("Login fetch failed.\n" + err));
       if (resp?.ok) {
-        redirectUrl = new URLSearchParams(window.location.search).get("url");
+        const redirectUrl = new URLSearchParams(window.location.search).get("url");
         if (redirectUrl) {
-          document.location = redirectUrl;
+          const parsed = new URL(redirectUrl, location.origin);
+          if (/^([^.]*\.)?boredom\.cloud/.test(parsed.hostname)) {
+            parsed.protocol = "https:";
+            document.location = parsed.href;
+          }
         } else {
           enableUi("Logged in.");
         }

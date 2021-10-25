@@ -3,7 +3,8 @@
 [![Npm Keywords](https://img.shields.io/github/package-json/keywords/theonethread/falkor-auth-server "Keywords")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
 [![Npm Package](https://img.shields.io/npm/v/@falkor/falkor-auth-server "Npm")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
 [![Node Version](https://img.shields.io/node/v/@falkor/falkor-auth-server "Node")](https://nodejs.org/ "Visit") &nbsp;
-[![CI](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Release "CI")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
+[![Build](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Release "Build")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
+[![Security](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Security?label=security "Security")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
 [![Activity](https://img.shields.io/github/last-commit/theonethread/falkor-auth-server "Activity")](https://github.com/theonethread/falkor-auth-server "Visit") &nbsp;
 [![Falkor Bundler](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/dev/@falkor/falkor-bundler "Falkor Bundler")](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") &nbsp;
 [![Fastify](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/fastify "Fastify")](https://www.npmjs.com/package/fastify "Visit") &nbsp;
@@ -70,7 +71,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database, either `mongodb+srv://` address, or relative path to `.yml` file
+* `AUTH_DB=<db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
 * `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
@@ -201,7 +202,17 @@ The `feature/*` branches usually hold ideas and POC code, these will only be mer
 
 ### **GitHub Actions**
 
-Automatic builds are achieved via GitHub actions, CI will make nightly builds of the `develop` branch (using Ubuntu image), and thoroughly test `master` when there is a pull request, or commit on it (using Ubuntu - Win - MacOS image matrix). The workflows can be found [here](https://github.com/theonethread/falkor-auth-server/blob/develop/.github/workflows "Open").
+The workflows can be found [here](https://github.com/theonethread/falkor-auth-server/blob/develop/.github/workflows "Open").
+
+#### **Continuous Integration**
+
+Automatic builds are achieved via GitHub actions, CI will make nightly builds of the `develop` branch (using Ubuntu image), and test `master` when there is a pull request, or commit on it (using Ubuntu - Win - MacOS image matrix).
+
+#### **Security**
+
+The project uses [CodeQL](https://codeql.github.com "Visit") and [Snyk](https://snyk.io "Visit") to ensure standard security.
+
+> _The **Falkor Framework** supports a healthy and ubiquitous Internet Immune System enabled by security research, reporting, and disclosure. Check out our [Vulnerability Disclosure Policy](https://github.com/theonethread/falkor-bundler/security/policy "Open") - based on [disclose.io](https://disclose.io "Visit")'s best practices._
 
 ### **Open Source**
 
