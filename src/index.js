@@ -14,7 +14,8 @@ import configFactory from "./util/config.js";
 dotenv.config({ path: "res/config.env" });
 //#endif
 
-const argv = minimist(process.argv.slice(2));
+// NOTE: differentiate between positional arguments, and options passed after "--" POSIX separator
+const argv = minimist(process.argv.slice(2), { "--": true });
 if (argv.v || argv.version) {
     (await import("./cli/index-cli.js")).default(true);
     process.exit(0);
