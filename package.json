@@ -44,6 +44,11 @@
     ".man/falkor-auth-server.1",
     ".man/falkor-auth-passwd.1"
   ],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
   "engines": {
     "node": ">=14",
     "npm": ">=6"
