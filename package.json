@@ -70,7 +70,7 @@
     "dotenv": "10.0.0",
     "rimraf": "3.0.2",
     "yaml": "1.10.2",
-    "@falkor/falkor-bundler": "1.1.5"
+    "@falkor/falkor-bundler": "1.1.6"
   },
   "dependencies": {
     "minimist": "1.2.5",
