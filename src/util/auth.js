@@ -9,7 +9,7 @@ export default async (config, rootLogger) => {
     let crypto;
 
     //#if _DEBUG
-    if (/^mongodb\+srv:\/\//.test(config.authDb)) {
+    if (/^mongodb(\+srv)?:\/\//.test(config.authDb)) {
         //#endif
         const mongoDbModule = await import("../db/mongo.js");
         db = await mongoDbModule.default(config, rootLogger);

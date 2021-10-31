@@ -51,36 +51,16 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
+* `-D <db>` or `--db <db>`: User database address (`mongodb://` or `mongodb+srv://` address)
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
 > _**SEE**: [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
 
-### **Environment Variables**
-
-All CLI options can be set as environment variables too, though CLI flags overpower them.
-
-* `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
-* `SERVER_PORT=<port>`: Port of server (default: `9999`)
-* `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
-* `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
-* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_token`)
-* `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
-* `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
-* `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
-* `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
-* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
-* `LOG_LEVEL=<level>`: Log level (default: `debug`)
-* `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
-
-> _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
-
 #### `falkor-auth-passwd`
 
-The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
+The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the `falkor-auth-server`. It generates hashes out of passwords based on the user's secret to be stored in the database.
 
 Usage:
 
@@ -96,6 +76,26 @@ Options:
 `-h` or `--help`: Show help and exit
 `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 `-p <password>` or `--password <password>`: Password to create encrypted hash for
+
+### **Environment Variables**
+
+All `falkor-auth-server` CLI options can be set as environment variables too, though CLI flags overpower them.
+
+* `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
+* `SERVER_PORT=<port>`: Port of server (default: `9999`)
+* `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
+* `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
+* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_token`)
+* `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
+* `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
+* `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
+* `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
+* `AUTH_DB=<db>`: User database address (`mongodb://` or `mongodb+srv://` address)
+* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
+* `LOG_LEVEL=<level>`: Log level (default: `debug`)
+* `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
+
+> _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
 
 ### **Must Have Settings**
 
@@ -113,11 +113,7 @@ The following settings must be present either running the application with CLI o
 
 ## **User Data**
 
-Currently the server supports connecting to a MongoDB instance, or using a mock `.yml` file based authentication when compiled in `debug` mode for local testing.
-
-### **MongoDB**
-
-If the DB option starts with `mongodb+srv://`, the application will assume the following database setup:
+The server needs an existing MongoDB database, for testing purposes one can create a free account at [MongoDB Atlas](https://www.mongodb.com/atlas "Visit"). The application will assume the following database setup:
 
 * Database: `authentication`
 * Collection: `users`
@@ -148,19 +144,6 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 > _**NOTE**: Since randomization, you will get different values running this command multiple times._
 
-### **YAML**
-
-If compiled in `debug` mode and the DB option does not start with `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
-
-```yaml
-users:
-    - name: string
-      pass: string
-      roles: [ string ]
-```
-
-> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
-
 ## **Server Setup**
 
 To set up a Fedora-based Nginx webserver using Node.js as authentication service you can follow my tutorials in the Hetzner Community:
@@ -170,15 +153,29 @@ To set up a Fedora-based Nginx webserver using Node.js as authentication service
 
 ## **Further Development**
 
-The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") module to compile sources. You can run:
+The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") module to compile sources. One can use the commands in the root directory:
 
 ```
+$ npm install
 $ npm run [ debug | release ]
 ```
 
 > _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
 > _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")._
+
+### **Database Mock**
+
+If compiled in `debug` mode and the DB option does not start with `mongodb://` or `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
+
+```yaml
+users:
+    - name: string
+      pass: string
+      roles: [ string ]
+```
+
+> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
 
 ### **Man Page**
 
