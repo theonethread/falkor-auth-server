@@ -57,7 +57,7 @@ The **falkor-auth-server** project is a standalone npm command-line application 
 :   Role response header name  (default: **X-Falkor-Role**)
 
 `-D <db>`, `--db <db>`
-:   User database address ("mongodb+srv://" address, or relative path to **.yml** file in **debug** builds)
+:   User database address ("mongodb://" or "mongodb+srv://" address)
 
 `-S <stamp>`, `--stamp <stamp>`
 :   Add timestamp to logs  (default: **true**)

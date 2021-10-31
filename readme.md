@@ -51,7 +51,7 @@ Options:
 * `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
 * `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
 * `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
+* `-D <db>` or `--db <db>`: User database address (`mongodb://` or `mongodb+srv://` address)
 * `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
@@ -71,7 +71,7 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
 * `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
 * `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database address (`mongodb+srv://` address, or relative path to `.yml` file in `debug` builds)
+* `AUTH_DB=<db>`: User database address (`mongodb://` or `mongodb+srv://` address)
 * `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
@@ -113,11 +113,7 @@ The following settings must be present either running the application with CLI o
 
 ## **User Data**
 
-Currently the server supports connecting to a MongoDB instance, or using a mock `.yml` file based authentication when compiled in `debug` mode for local testing.
-
-### **MongoDB**
-
-If the DB option starts with `mongodb+srv://`, the application will assume the following database setup:
+The server needs an existing MongoDB database, for testing purposes one can create a free account at [MongoDB Atlas](https://www.mongodb.com/atlas "Visit"). The application will assume the following database setup:
 
 * Database: `authentication`
 * Collection: `users`
@@ -148,19 +144,6 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 > _**NOTE**: Since randomization, you will get different values running this command multiple times._
 
-### **YAML**
-
-If compiled in `debug` mode and the DB option does not start with `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
-
-```yaml
-users:
-    - name: string
-      pass: string
-      roles: [ string ]
-```
-
-> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
-
 ## **Server Setup**
 
 To set up a Fedora-based Nginx webserver using Node.js as authentication service you can follow my tutorials in the Hetzner Community:
@@ -180,6 +163,19 @@ $ npm run [ debug | release ]
 > _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
 > _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")._
+
+### **Database Mock**
+
+If compiled in `debug` mode and the DB option does not start with `mongodb://` or `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
+
+```yaml
+users:
+    - name: string
+      pass: string
+      roles: [ string ]
+```
+
+> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
 
 ### **Man Page**
 

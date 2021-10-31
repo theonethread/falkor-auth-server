@@ -33,7 +33,7 @@ Options:
     -s <secret>, --secret <secret>  32 characters long secret for token and password encryption
     -u <user>, --user <user>        User response header name  [default: X-Falkor-User]
     -r <role>, --role <role>        Role response header name  [default: X-Falkor-Role]
-    -D <db>, --db <db>              User database address ("mongodb+srv://" address, or relative path to ".yml" file in debug builds)
+    -D <db>, --db <db>              User database address ("mongodb://" or "mongodb+srv://" address)
     -S <stamp>, --stamp <stamp>     Add timestamp to logs  [default: true]
     -l <level>, --level <level>     Log level  [default: debug]
     -f <file>, --file <file>        Log file destination, if set logs will be dumped here
