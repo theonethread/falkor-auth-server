@@ -58,9 +58,28 @@ Options:
 
 > _**SEE**: [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
 
+#### `falkor-auth-passwd`
+
+The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the `falkor-auth-server`. It generates hashes out of passwords based on the user's secret to be stored in the database.
+
+Usage:
+
+```
+falkor-auth-passwd (--password <password>) (--secret <secret>)
+falkor-auth-passwd (-p <password>) (-s <secret>)
+falkor-auth-passwd (-v | --version | -h | --help)
+```
+
+Options:
+
+`-v` or `--version`: Show version and exit
+`-h` or `--help`: Show help and exit
+`-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
+`-p <password>` or `--password <password>`: Password to create encrypted hash for
+
 ### **Environment Variables**
 
-All CLI options can be set as environment variables too, though CLI flags overpower them.
+All `falkor-auth-server` CLI options can be set as environment variables too, though CLI flags overpower them.
 
 * `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
 * `SERVER_PORT=<port>`: Port of server (default: `9999`)
@@ -77,25 +96,6 @@ All CLI options can be set as environment variables too, though CLI flags overpo
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
 > _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
-
-#### `falkor-auth-passwd`
-
-The accompanying `falkor-auth-passwd` binary is also a standalone `npm` command-line application written in JavaScript to be used with the **falkor-auth-server**. It generates hashes out of passwords based on the user's secret to be stored in the database.
-
-Usage:
-
-```
-falkor-auth-passwd (--password <password>) (--secret <secret>)
-falkor-auth-passwd (-p <password>) (-s <secret>)
-falkor-auth-passwd (-v | --version | -h | --help)
-```
-
-Options:
-
-`-v` or `--version`: Show version and exit
-`-h` or `--help`: Show help and exit
-`-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
-`-p <password>` or `--password <password>`: Password to create encrypted hash for
 
 ### **Must Have Settings**
 
