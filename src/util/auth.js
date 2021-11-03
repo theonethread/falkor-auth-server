@@ -40,9 +40,11 @@ export default async (config, rootLogger) => {
 
         const u = await db.getUserData(user);
         let valid = false;
+        //#if _DEBUG
         if (db.mode === "file") {
             valid = u?.pass === pass;
         } else {
+            //#endif
             //#if _UPDATE_PWD
             if (u?.pass) {
                 rootLogger.debug({ msg: "updating pwd", user });
@@ -51,7 +53,9 @@ export default async (config, rootLogger) => {
             }
             //#endif
             valid = u?.pwd && crypto.decode(u.pwd, true) === pass;
+            //#if _DEBUG
         }
+        //#endif
         if (valid) {
             const joinedRoles = u.roles.join(roleJoiner);
             return {

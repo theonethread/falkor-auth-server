@@ -49,7 +49,7 @@ export default async (config, rootLogger) => {
         schema: router.schema.login
     });
 
-    await server.listen(config.port, config.host);
+    await server.listen({ port: config.port, host: config.host });
     logger.info({ status: "ready", protocol: "http", host: config.host, port: config.port });
 
     process.on("message", (message) => {
