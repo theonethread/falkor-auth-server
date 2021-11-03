@@ -35,10 +35,10 @@ jobs:
 
       - name: Bundle Custom Project
         run: |-
-          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/index.js
-          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/passwd.js
-          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/util/crypto.js --out .dist/util
-          npx falkor-bundler ${{ github.event.inputs.cli }} --input src/cli/version.js --out .dist/cli
+          npx --no-install falkor-bundler ${{ github.event.inputs.cli }} --input src/index.js
+          npx --no-install falkor-bundler ${{ github.event.inputs.cli }} --input src/passwd.js
+          npx --no-install falkor-bundler ${{ github.event.inputs.cli }} --input src/util/crypto.js --out .dist/util
+          npx --no-install falkor-bundler ${{ github.event.inputs.cli }} --input src/cli/version.js --out .dist/cli
 
       - name: Use Pandoc v2.14.2
         if: ${{ matrix.os != 'windows-latest' }}
