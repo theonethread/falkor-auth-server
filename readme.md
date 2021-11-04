@@ -18,7 +18,7 @@ The `falkor-auth-server` project is a standalone `npm` command-line application 
 Install the package globally, so it's available in your `PATH`:
 
 ```
-$ npm install --global "@falkor/falkor-auth-server"
+$ npm install --global @falkor/falkor-auth-server
 ```
 
 ## **Usage**
