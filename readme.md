@@ -164,7 +164,7 @@ $ npm run [ debug | release ]
 
 > _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
-> _**NOTE**: Compiling the `develop` sources might need locally linked `develop` versions of downstream module(s):_
+> _**NOTE**: Compiling the `develop` sources might need locally linked `develop` versions of downstream module:_
 > 
 > * _[`@falkor/falkor-bundler`](https://github.com/theonethread/falkor-bundler/tree/develop "Visit")_
 > 
