@@ -6,7 +6,11 @@ export default (config, rootLogger) => {
     logger.debug({ config });
 
     const cpuCount = os.cpus().length;
-    const processCount = /*#if _DEBUG*/ 1 || /*#endif*/ Math.max(1, Math.floor(cpuCount / 2));
+    /*#if _DEBUG
+    const processCount = 1;
+    //#else */
+    const processCount = Math.max(1, Math.floor(cpuCount / 2));
+    //#endif
     const workers = {};
     let onlineCount = 0;
 
