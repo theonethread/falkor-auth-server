@@ -164,9 +164,15 @@ $ npm run [ debug | release ]
 
 > _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
-> _**NOTE**: If compiled in debug mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging in), **it will update the record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")._
+> _**NOTE**: Compiling the `develop` sources might need locally linked `develop` versions of downstream module(s):_
+> * _[`@falkor/falkor-bundler`](https://github.com/theonethread/falkor-bundler/tree/develop "Visit")_
+> _**SEE**: [`npm-link`](https://docs.npmjs.com/cli/v7/commands/npm-link "Visit")_
 
-### **Database Mock**
+### **Database**
+
+If compiled in `debug` mode, and the application finds user data in MongoDB with unencrypted `pass` field (when logging a user in), **it will update the user record** with an encrypted `pwd` field, and unset `pass`. This behavior can be controlled with the `#UPDATE_PWD` context variable in the `"scripts"` block of [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open") - for further details see [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit").
+
+#### **Database Mock**
 
 If compiled in `debug` mode and the DB option does not start with `mongodb://` or `mongodb+srv://`, the application will assume a relative path to a `.yml` file with the following structure:
 
