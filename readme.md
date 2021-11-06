@@ -56,7 +56,7 @@ Options:
 * `-l <level>` or `--level <level>`: Log level (default: `debug`)
 * `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE**: [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
+> _**SEE:** [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
 
 #### `falkor-auth-passwd`
 
@@ -95,7 +95,7 @@ All `falkor-auth-server` CLI options can be set as environment variables too, th
 * `LOG_LEVEL=<level>`: Log level (default: `debug`)
 * `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE**: [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
+> _**SEE:** [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
 
 ### **Must Have Settings**
 
@@ -142,7 +142,7 @@ Or from the installed project's root:
 $ npm run passwd -- --secret <your-secret> --password <your-password>
 ```
 
-> _**NOTE**: Since randomization, you will get different values running this command multiple times._
+> _**NOTE:** Since randomization, you will get different values running this command multiple times._
 
 ## **Server Setup**
 
@@ -162,13 +162,13 @@ $ npm install
 $ npm run [ debug | release ]
 ```
 
-> _**SEE**: `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
+> _**SEE:** `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
 
-> _**NOTE**: Compiling the `develop` sources might need locally linked `develop` versions of downstream module:_
+> _**NOTE:** Compiling the `develop` sources might need locally linked `develop` versions of downstream module:_
 > 
 > * _[`@falkor/falkor-bundler`](https://github.com/theonethread/falkor-bundler/tree/develop "Visit")_
 > 
-> _**SEE**: [`npm-link`](https://docs.npmjs.com/cli/v7/commands/npm-link "Visit")_
+> _**SEE:** [`npm-link`](https://docs.npmjs.com/cli/v7/commands/npm-link "Visit")_
 
 ### **Database**
 
@@ -185,7 +185,7 @@ users:
       roles: [ string ]
 ```
 
-> _**SEE**: Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
+> _**SEE:** Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
 
 ### **Man Page**
 
