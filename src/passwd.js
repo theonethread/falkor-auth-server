@@ -2,12 +2,8 @@ import minimist from "minimist";
 import cryptoFactory from "./util/crypto.js";
 
 const argv = minimist(process.argv.slice(2));
-if (argv.v || argv.version) {
-    (await import("./cli/passwd-cli.js")).default(true);
-    process.exit(0);
-}
-if (argv.h || argv.help) {
-    (await import("./cli/passwd-cli.js")).default();
+if ((short = argv.v || argv.version) || argv.h || argv.help) {
+    (await import("./cli/index-cli.js")).default(import.meta.url, short);
     process.exit(0);
 }
 
