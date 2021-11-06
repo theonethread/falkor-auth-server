@@ -1,3 +1,4 @@
+import process from "process";
 import cluster from "cluster";
 import path from "path";
 import shell from "shelljs";
@@ -16,10 +17,13 @@ dotenv.config({ path: "res/config.env" });
 
 // NOTE: differentiate between positional arguments, and options passed after "--" POSIX separator
 const argv = minimist(process.argv.slice(2), { "--": true });
-if ((short = argv.v || argv.version) || argv.h || argv.help) {
-    (await import("./cli/index-cli.js")).default(import.meta.url, short);
-    process.exit(0);
-}
+(() => {
+    let version = argv.v || argv.version;
+    if (version || argv.h || argv.help) {
+        (await import("./cli/index-cli.js")).default(import.meta.url, version);
+        process.exit(0);
+    }
+})();
 
 // NOTE: must retrieve values after dotenv configured
 const config = configFactory(argv);
