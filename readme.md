@@ -156,7 +156,7 @@ To set up a Fedora-based Nginx webserver using Node.js as authentication service
 The project uses the [`@falkor/falkor-bundler`](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") module to compile sources. To clone the repository and compile `falkor-auth-server` one can use the commands:
 
 ```
-$ git clone git@github.com:theonethread/falkor-auth-server.git
+$ git clone --branch develop git@github.com:theonethread/falkor-auth-server.git
 $ cd falkor-auth-server
 $ npm install
 $ npm run [ debug | release ]
