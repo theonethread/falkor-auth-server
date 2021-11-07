@@ -1,15 +1,6 @@
 # **Falkor Authentication Server**
 
-[![Npm Keywords](https://img.shields.io/github/package-json/keywords/theonethread/falkor-auth-server "Keywords")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
-[![Npm Package](https://img.shields.io/npm/v/@falkor/falkor-auth-server "Npm")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp;
-[![Node Version](https://img.shields.io/node/v/@falkor/falkor-auth-server "Node")](https://nodejs.org/ "Visit") &nbsp;
-[![Build](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Release "Build")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
-[![Security](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Security?label=security "Security")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp;
-[![Activity](https://img.shields.io/github/last-commit/theonethread/falkor-auth-server "Activity")](https://github.com/theonethread/falkor-auth-server "Visit") &nbsp;
-[![Falkor Bundler](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/dev/@falkor/falkor-bundler "Falkor Bundler")](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") &nbsp;
-[![Fastify](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/fastify "Fastify")](https://www.npmjs.com/package/fastify "Visit") &nbsp;
-[![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/theonethread/falkor-auth-server "Snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit") &nbsp;
-[![License](https://img.shields.io/npm/l/@falkor/falkor-auth-server "MIT")](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Visit")
+[![Npm Keywords](https://img.shields.io/github/package-json/keywords/theonethread/falkor-auth-server "Keywords")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp; [![Npm Package](https://img.shields.io/npm/v/@falkor/falkor-auth-server "Npm")](https://www.npmjs.com/package/@falkor/falkor-auth-server "Visit") &nbsp; [![Node Version](https://img.shields.io/node/v/@falkor/falkor-auth-server "Node")](https://nodejs.org/ "Visit") &nbsp; [![Build](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Release "Build")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp; [![Security](https://img.shields.io/github/workflow/status/theonethread/falkor-auth-server/Falkor%20CI%20-%20Security?label=security "Security")](https://github.com/theonethread/falkor-auth-server/actions "Visit") &nbsp; [![Activity](https://img.shields.io/github/last-commit/theonethread/falkor-auth-server "Activity")](https://github.com/theonethread/falkor-auth-server "Visit") &nbsp; [![Falkor Bundler](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/dev/@falkor/falkor-bundler "Falkor Bundler")](https://www.npmjs.com/package/@falkor/falkor-bundler "Visit") &nbsp; [![Fastify](https://img.shields.io/npm/dependency-version/@falkor/falkor-auth-server/fastify "Fastify")](https://www.npmjs.com/package/fastify "Visit") &nbsp; [![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/theonethread/falkor-auth-server "Snyk")](https://snyk.io/test/github/theonethread/falkor-auth-server "Visit") &nbsp; [![License](https://img.shields.io/npm/l/@falkor/falkor-auth-server "MIT")](https://github.com/theonethread/falkor-auth-server/blob/master/license.txt "Visit")
 
 The `falkor-auth-server` project is a standalone `npm` command-line application written in JavaScript to be used as an Nginx authentication proxy server (mainly to be used with the **Falkor Framework**).
 
@@ -33,30 +24,30 @@ Usage:
 falkor-auth-server [(--id <id>)] [(--port <port>)] [(--domain <domain>)] [(--host <host>)] [(--cookie <cookie>)]
     [(--ttl <ttl>)] [(--secret <secret>)] [(--user <user>)] [(--role <role>)] [(--db <db>)] [(--stamp <stamp>)]
     [(--level <level>)] [(--file <file>)]
-falkor-auth-server [(--i <id>)] [(--p <port>)] [(--d <domain>)] [(--H <host>)] [(--c <cookie>)][(--t <ttl>)] 
+falkor-auth-server [(--i <id>)] [(--p <port>)] [(--d <domain>)] [(--H <host>)] [(--c <cookie>)][(--t <ttl>)]
     [(--s <secret>)] [(--u <user>)] [(--r <role>)] [(--D <db>)] [(--S <stamp>)] [(--l <level>)] [(--f <file>)]
 falkor-auth-server (-v | --version | -h | --help)
 ```
 
 Options:
 
-* `-v` or `--version`: Show version and exit
-* `-h` or `--help`: Show help and exit
-* `-i <id>` or `--id <id>`: ID of server (default: `falkor-auth`)
-* `-p <port>` or `--port <port>`: Port of server (default: `9999`)
-* `-d <domain>` or `--domain <domain>`: Domain of the cookies to set
-* `-H <host>` or `--host <host>`: Host of the server (default: `0.0.0.0`)
-* `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_token`)
-* `-t <ttl>` or `--ttl <ttl>`: Cookie TTL (default: `14400`)
-* `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
-* `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
-* `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
-* `-D <db>` or `--db <db>`: User database address (`mongodb://` or `mongodb+srv://` address)
-* `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
-* `-l <level>` or `--level <level>`: Log level (default: `debug`)
-* `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
+- `-v` or `--version`: Show version and exit
+- `-h` or `--help`: Show help and exit
+- `-i <id>` or `--id <id>`: ID of server (default: `falkor-auth`)
+- `-p <port>` or `--port <port>`: Port of server (default: `9999`)
+- `-d <domain>` or `--domain <domain>`: Domain of the cookies to set
+- `-H <host>` or `--host <host>`: Host of the server (default: `0.0.0.0`)
+- `-c <cookie>` or `--cookie <cookie>`: Cookie name (default: `@falkor_token`)
+- `-t <ttl>` or `--ttl <ttl>`: Cookie TTL (default: `14400`)
+- `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
+- `-u <user>` or `--user <user>`: User response header name (default: `X-Falkor-Header`)
+- `-r <role>` or `--role <role>`: Role response header name (default: `X-Falkor-Role`)
+- `-D <db>` or `--db <db>`: User database address (`mongodb://` or `mongodb+srv://` address)
+- `-S <stamp>` or `--stamp <stamp>`: Add timestamp to logs (default: `true`)
+- `-l <level>` or `--level <level>`: Log level (default: `debug`)
+- `-f <file>` or `--file <file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE:** [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open")_
+> _**SEE:** [`config.js`](https://github.com/theonethread/falkor-auth-server/blob/master/src/util/config.js "Open") for further reference._
 
 #### `falkor-auth-passwd`
 
@@ -72,52 +63,49 @@ falkor-auth-passwd (-v | --version | -h | --help)
 
 Options:
 
-`-v` or `--version`: Show version and exit
-`-h` or `--help`: Show help and exit
-`-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption
-`-p <password>` or `--password <password>`: Password to create encrypted hash for
+`-v` or `--version`: Show version and exit `-h` or `--help`: Show help and exit `-s <secret>` or `--secret <secret>`: 32 characters long secret for token and password encryption `-p <password>` or `--password <password>`: Password to create encrypted hash for
 
 ### **Environment Variables**
 
 All `falkor-auth-server` CLI options can be set as environment variables too, though CLI flags overpower them.
 
-* `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
-* `SERVER_PORT=<port>`: Port of server (default: `9999`)
-* `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
-* `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
-* `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_token`)
-* `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
-* `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
-* `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
-* `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
-* `AUTH_DB=<db>`: User database address (`mongodb://` or `mongodb+srv://` address)
-* `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
-* `LOG_LEVEL=<level>`: Log level (default: `debug`)
-* `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
+- `SERVER_ID=<id>`: ID of server (default: `falkor-auth`)
+- `SERVER_PORT=<port>`: Port of server (default: `9999`)
+- `SERVER_DOMAIN=<domain>`: Domain of the cookies to set
+- `SERVER_HOST=<host>`: Host of the server (default: `0.0.0.0`)
+- `COOKIE_NAME=<cookie>`: Cookie name (default: `@falkor_token`)
+- `COOKIE_TTL=<ttl>`: Cookie TTL (default: `14400`)
+- `AUTH_SECRET=<secret>`: 32 characters long secret for token and password encryption
+- `AUTH_HEADER_USER=<user>`: User response header name (default: `X-Falkor-Header`)
+- `AUTH_HEADER_ROLE=<role>`: Role response header name (default: `X-Falkor-Role`)
+- `AUTH_DB=<db>`: User database address (`mongodb://` or `mongodb+srv://` address)
+- `LOG_TIMESTAMP=<stamp>`: Add timestamp to logs (default: `true`)
+- `LOG_LEVEL=<level>`: Log level (default: `debug`)
+- `LOG_FILE=<file>`: Log file destination, if set logs will be dumped here
 
-> _**SEE:** [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open")_
+> _**SEE:** Example [`config.env`](https://github.com/theonethread/falkor-auth-server/blob/master/res/config.env "Open") for further reference._
 
 ### **Must Have Settings**
 
 The following settings must be present either running the application with CLI options, or using environment variables:
 
-* Domain of the cookies to set:
-    * `-d <domain>` or `--domain <domain>`
-    * `SERVER_DOMAIN=<domain>`
-* 16 characters long secret for token encryption:
-    * `-s <secret>` or `--secret <secret>`
-    * `AUTH_SECRET=<secret>`
-* User database address (or relative path to `.yml` file in `debug` builds):
-    * `-D <db>` or `--db <db>`
-    * `AUTH_DB=<db>`
+- Domain of the cookies to set:
+  - `-d <domain>` or `--domain <domain>`
+  - `SERVER_DOMAIN=<domain>`
+- 16 characters long secret for token encryption:
+  - `-s <secret>` or `--secret <secret>`
+  - `AUTH_SECRET=<secret>`
+- User database address (or relative path to `.yml` file in `debug` builds):
+  - `-D <db>` or `--db <db>`
+  - `AUTH_DB=<db>`
 
 ## **User Data**
 
 The server needs an existing MongoDB database, for testing purposes one can create a free account at [MongoDB Atlas](https://www.mongodb.com/atlas "Visit"). The application will assume the following database setup:
 
-* Database: `authentication`
-* Collection: `users`
-* Entries:
+- Database: `authentication`
+- Collection: `users`
+- Entries:
 
 ```javascript
 {
@@ -148,8 +136,8 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 
 To set up a Fedora-based Nginx webserver using Node.js as authentication service you can follow my tutorials in the Hetzner Community:
 
-* [Setting Up a Secure Fedora Webserver](https://community.hetzner.com/tutorials/secure-fedora-webserver "Visit")
-* [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") _(under review)_
+- [Setting Up a Secure Fedora Webserver](https://community.hetzner.com/tutorials/secure-fedora-webserver "Visit")
+- [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") _(under review)_
 
 ## **Further Development**
 
@@ -162,13 +150,13 @@ $ npm install
 $ npm run [ debug | release ]
 ```
 
-> _**SEE:** `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open")_
+> _**SEE:** `"scripts"` entry in [`package.json`](https://github.com/theonethread/falkor-auth-server/blob/master/package.json "Open") for further reference._
 
 > _**NOTE:** Compiling the `develop` sources might need locally linked `develop` versions of downstream module:_
-> 
-> * _[`@falkor/falkor-bundler`](https://github.com/theonethread/falkor-bundler/tree/develop "Visit")_
-> 
-> _**SEE:** [`npm-link`](https://docs.npmjs.com/cli/v7/commands/npm-link "Visit")_
+>
+> - _[`@falkor/falkor-bundler`](https://github.com/theonethread/falkor-bundler/tree/develop "Visit")_
+>
+> _**SEE:** [`npm-link`](https://docs.npmjs.com/cli/v7/commands/npm-link "Visit") for further reference._
 
 ### **Database**
 
@@ -180,12 +168,12 @@ If compiled in `debug` mode and the DB option does not start with `mongodb://` o
 
 ```yaml
 users:
-    - name: string
-      pass: string
-      roles: [ string ]
+  - name: string
+    pass: string
+    roles: [string]
 ```
 
-> _**SEE:** Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open")_
+> _**SEE:** Example [`auth.yml`](https://github.com/theonethread/falkor-auth-server/blob/master/res/auth.yml "Open") for further reference._
 
 ### **Man Page**
 

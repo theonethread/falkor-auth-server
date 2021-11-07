@@ -63,8 +63,9 @@
   "scripts": {
     "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL #UPDATE_PWD\" --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util && falkor-bundler --debug --input src/cli/version.js --out .dist/cli",
     "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util && falkor-bundler --release --input src/cli/version.js --out .dist/cli",
+    "lint": "prettier --check .",
     "man": "pandoc --version && (mkdir .man || rimraf .man/**/*) && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1 && pandoc --standalone --to man ./man/passwd.md --output ./.man/falkor-auth-passwd.1",
-    "prepublishOnly": "npm ci && npm run release && npm run man",
+    "prepublishOnly": "npm ci && npm run lint && npm run release && npm run man",
     "start": "node .dist/index.js",
     "passwd": "node .dist/passwd.js"
   },
@@ -76,6 +77,7 @@
     "dotenv": "10.0.0",
     "rimraf": "3.0.2",
     "yaml": "1.10.2",
+    "prettier": "2.4.1",
     "@falkor/falkor-bundler": "1.1.8"
   },
   "dependencies": {
