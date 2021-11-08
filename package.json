@@ -63,7 +63,7 @@
   "scripts": {
     "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL #UPDATE_PWD\" --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util && falkor-bundler --debug --input src/cli/version.js --out .dist/cli",
     "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util && falkor-bundler --release --input src/cli/version.js --out .dist/cli",
-    "lint": "prettier --check . && cspell lint --no-progress --wordsOnly --unique --gitignore **",
+    "lint": "prettier --check . && cspell lint --no-progress --wordsOnly --unique --gitignore --exclude .git ** .*",
     "man": "pandoc --version && (mkdir .man || rimraf .man/**/*) && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1 && pandoc --standalone --to man ./man/passwd.md --output ./.man/falkor-auth-passwd.1",
     "prepublishOnly": "npm ci && npm run lint && npm run release && npm run man",
     "start": "node .dist/index.js",
