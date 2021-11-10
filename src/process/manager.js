@@ -36,8 +36,8 @@ export default (config, rootLogger) => {
                     if (onlineCount === processCount) {
                         logger.info({ status: "ready" });
                         //#if _LOCAL
-                        // NOTE: this will notify VSCode on stdout that the initialization is
-                        // finished, and it can carry on with its current launch configuration
+                        // NOTE: this will notify your local task on stdout that the initialization
+                        // is finished, and it can carry on with its current launch configuration
                         console.log("[falkor-auth-server] ready");
                         //#endif
                     }
