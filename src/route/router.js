@@ -27,7 +27,7 @@ export default async (config, logger) => {
     const buildSchema = () => {
         const response200 = {
             type: "object",
-            required: ["pid", "id", "status"],
+            required: ["pid", "id", "status", "user", "role"],
             properties: {
                 pid: { type: "integer", const: config.pid },
                 id: { type: "string", const: config.id },
@@ -50,7 +50,8 @@ export default async (config, logger) => {
             required: ["user", "pass"],
             properties: {
                 user: { type: "string" },
-                pass: { type: "string" }
+                pass: { type: "string" },
+                plain: { type: "boolean" }
             }
         };
 
@@ -87,9 +88,9 @@ export default async (config, logger) => {
         const permissions = request.cookies && auth.validateToken(request.hostname, request.cookies[config.cookieName]);
         if (permissions) {
             response
-                .code(200)
                 .header(config.authHeaderUser, permissions.user)
                 .header(config.authHeaderRole, permissions.role)
+                .code(200)
                 .send(
                     getSendValues(defaultSendSuccess, {
                         user: permissions.user,
@@ -102,10 +103,10 @@ export default async (config, logger) => {
                 ip: request.ips || request.ip
             });
             response
-                .code(401)
                 .header(config.authHeaderUser, "")
                 .header(config.authHeaderRole, "")
                 .clearCookie(config.cookieName, getCookieOptions())
+                .code(401)
                 .send(getSendValues(defaultSendFailure));
         }
     };
@@ -113,28 +114,31 @@ export default async (config, logger) => {
     const login = async (request, response) => {
         const permissions = await auth.getPermission(request.hostname, request.body.user, request.body.pass);
         if (permissions) {
-            response
-                .header(config.authHeaderUser, permissions.user)
-                .header(config.authHeaderRole, permissions.role)
-                .setCookie(config.cookieName, permissions.token, getCookieOptions({ maxAge: config.cookieTtl }))
-                .send(
-                    getSendValues(defaultSendSuccess, {
-                        user: permissions.user,
-                        role: permissions.role
-                    })
-                );
+            if (!request.body.plain) {
+                response
+                    .header(config.authHeaderUser, permissions.user)
+                    .header(config.authHeaderRole, permissions.role)
+                    .setCookie(config.cookieName, permissions.token, getCookieOptions({ maxAge: config.cookieTtl }));
+            }
+            response.send(
+                getSendValues(defaultSendSuccess, {
+                    user: permissions.user,
+                    role: permissions.role
+                })
+            );
             return;
         }
         request.log.info({
             msg: "login failure",
             ip: request.ips || request.ip
         });
-        response
-            .status(401)
-            .header(config.authHeaderUser, "")
-            .header(config.authHeaderRole, "")
-            .clearCookie(config.cookieName, getCookieOptions())
-            .send(getSendValues(defaultSendFailure));
+        if (!request.body.plain) {
+            response
+                .header(config.authHeaderUser, "")
+                .header(config.authHeaderRole, "")
+                .clearCookie(config.cookieName, getCookieOptions());
+        }
+        response.status(401).send(getSendValues(defaultSendFailure));
     };
 
     return {
