@@ -1,6 +1,6 @@
 {
   "name": "@falkor/falkor-auth-server",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Nginx authentication server to be used with the Falkor Framework",
   "author": {
     "name": "Barnabas Bucsy",
@@ -78,7 +78,7 @@
     "yaml": "1.10.2",
     "prettier": "2.4.1",
     "cspell": "5.13.0",
-    "@falkor/falkor-bundler": "1.1.10"
+    "@falkor/falkor-bundler": "1.1.11"
   },
   "dependencies": {
     "minimist": "1.2.5",
