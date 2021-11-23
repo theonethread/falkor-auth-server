@@ -16,11 +16,9 @@ const config = {
     pass: argv.p || argv.password,
     secret: argv.s || argv.secret
 };
-
 if (!config.pass) {
     throw "Error: Password must be set (-p, --password)";
 }
-
 if (!config.secret) {
     throw "Error: Secret must be set (-s, --secret)";
 }

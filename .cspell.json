@@ -1,0 +1,31 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "falkor",
+    "Bucsy",
+    "fastify",
+    "pino",
+    "pandoc",
+    "theonethread",
+    "unencrypted",
+    "hetzner",
+    "npmjs",
+    "codeql",
+    "snyk",
+    "prettierrc",
+    "loglevel",
+    "parens",
+    "referer",
+    "sendfile",
+    "nopush",
+    "nodelay",
+    "keepalive",
+    "proto",
+    "eecdh",
+    "aesgcm",
+    "letsencrypt",
+    "fullchain",
+    "privkey"
+  ]
+}

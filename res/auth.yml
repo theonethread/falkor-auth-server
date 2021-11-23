@@ -1,8 +1,8 @@
 users:
-    - user: admin
-      pass: admin
-      roles:
-          - admin
-          - ops
-          - prod
-          - dev
+  - user: admin
+    pass: admin
+    roles:
+      - admin
+      - ops
+      - prod
+      - dev
