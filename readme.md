@@ -137,7 +137,7 @@ $ npm run passwd -- --secret <your-secret> --password <your-password>
 To set up a Fedora-based Nginx webserver using Node.js as authentication service you can follow my tutorials in the Hetzner Community:
 
 - [Setting Up a Secure Fedora Webserver](https://community.hetzner.com/tutorials/secure-fedora-webserver "Visit")
-- [Password Protecting Web Content](https://github.com/theonethread/community-content/blob/master/tutorials/nginx-password-protect-content/01.en.md "Visit") _(under review)_
+- [Nginx Authentication Preflight Request with Node.js Backend](https://community.hetzner.com/tutorials/nginx-auth-preflight-nodejs-api "Visit")
 
 ## **Further Development**
 
