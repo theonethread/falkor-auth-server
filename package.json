@@ -1,6 +1,6 @@
 {
   "name": "@falkor/falkor-auth-server",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Nginx authentication server to be used with the Falkor Framework",
   "author": {
     "name": "Barnabas Bucsy",
@@ -65,27 +65,27 @@
     "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util && falkor-bundler --release --input src/cli/version.js --out .dist/cli",
     "lint": "prettier --check . && cspell lint --no-progress --wordsOnly --unique --gitignore --exclude .git ** .*",
     "man": "pandoc --version && (mkdir .man || rimraf .man/**/*) && pandoc --standalone --to man ./man/man.md --output ./.man/falkor-auth-server.1 && pandoc --standalone --to man ./man/passwd.md --output ./.man/falkor-auth-passwd.1",
-    "prepublishOnly": "npm ci && npm run lint && npm run release && npm run man",
+    "prepublishOnly": "npm ci --ignore-scripts && npm run lint && npm run release && npm run man",
     "start": "node .dist/index.js",
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "14.17.34",
+    "@types/node": "14.18.3",
     "@types/minimist": "1.2.2",
-    "@types/shelljs": "0.8.9",
-    "dotenv": "10.0.0",
+    "@types/shelljs": "0.8.11",
+    "dotenv": "14.2.0",
     "rimraf": "3.0.2",
     "yaml": "1.10.2",
-    "prettier": "2.4.1",
-    "cspell": "5.13.0",
-    "@falkor/falkor-bundler": "1.1.11"
+    "prettier": "2.5.1",
+    "cspell": "5.15.2",
+    "@falkor/falkor-bundler": "1.1.12"
   },
   "dependencies": {
     "minimist": "1.2.5",
-    "shelljs": "0.8.4",
-    "pino": "7.4.0",
-    "fastify": "3.24.0",
-    "fastify-cookie": "5.3.2",
-    "mongodb": "4.2.0"
+    "shelljs": "0.8.5",
+    "pino": "7.6.3",
+    "fastify": "3.26.0",
+    "fastify-cookie": "5.5.0",
+    "mongodb": "4.3.1"
   }
 }
