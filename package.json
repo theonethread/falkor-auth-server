@@ -70,22 +70,22 @@
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "14.17.34",
+    "@types/node": "14.18.3",
     "@types/minimist": "1.2.2",
-    "@types/shelljs": "0.8.9",
-    "dotenv": "10.0.0",
+    "@types/shelljs": "0.8.11",
+    "dotenv": "14.2.0",
     "rimraf": "3.0.2",
     "yaml": "1.10.2",
-    "prettier": "2.4.1",
-    "cspell": "5.13.0",
-    "@falkor/falkor-bundler": "1.1.11"
+    "prettier": "2.5.1",
+    "cspell": "5.15.2",
+    "@falkor/falkor-bundler": "1.1.12"
   },
   "dependencies": {
     "minimist": "1.2.5",
-    "shelljs": "0.8.4",
-    "pino": "7.4.0",
-    "fastify": "3.24.0",
-    "fastify-cookie": "5.3.2",
-    "mongodb": "4.2.0"
+    "shelljs": "0.8.5",
+    "pino": "7.6.3",
+    "fastify": "3.26.0",
+    "fastify-cookie": "5.5.0",
+    "mongodb": "4.3.1"
   }
 }
