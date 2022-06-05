@@ -26,6 +26,7 @@
     "aesgcm",
     "letsencrypt",
     "fullchain",
-    "privkey"
+    "privkey",
+    "webserver"
   ]
 }

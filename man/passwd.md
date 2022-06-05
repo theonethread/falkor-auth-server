@@ -32,4 +32,4 @@ The **falkor-auth-passwd** project is a standalone npm command-line application 
 
 # COPYRIGHT
 
-(C)2020-2021 Barnabas Bucsy - All rights reserved.
+(C)2020-2022 Barnabas Bucsy - All rights reserved.

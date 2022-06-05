@@ -9,7 +9,7 @@ export default (fileUrl, short = false) => {
     console.log(`
 [Falkor Authentication Server]
 version ${getOwnVersion(fileUrl)}
-(C)2020-2021 Barnabas Bucsy - All rights reserved.
+(C)2020-2022 Barnabas Bucsy - All rights reserved.
 
 Falkor Nginx authentication preflight proxy server - part of the Falkor Framework
 
