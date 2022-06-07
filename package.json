@@ -1,6 +1,6 @@
 {
   "name": "@falkor/falkor-auth-server",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "Nginx authentication server to be used with the Falkor Framework",
   "author": {
     "name": "Barnabas Bucsy",
@@ -57,8 +57,8 @@
     "win32"
   ],
   "engines": {
-    "node": ">=14",
-    "npm": ">=6"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "scripts": {
     "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL #UPDATE_PWD\" --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util && falkor-bundler --debug --input src/cli/version.js --out .dist/cli",
@@ -86,6 +86,6 @@
     "pino": "8.0.0",
     "fastify": "3.29.0",
     "fastify-cookie": "5.7.0",
-    "mongodb": "4.6.0"
+    "mongodb": "4.7.0"
   }
 }
