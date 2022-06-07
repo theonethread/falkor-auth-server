@@ -78,7 +78,7 @@
     "yaml": "2.1.1",
     "prettier": "2.6.2",
     "cspell": "6.1.1",
-    "@falkor/falkor-bundler": "1.1.14"
+    "@falkor/falkor-bundler": "1.2.0"
   },
   "dependencies": {
     "minimist": "1.2.6",
