@@ -1,4 +1,4 @@
-% FALKOR-AUTH-PASSWD(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % October 2021
+% FALKOR-AUTH-PASSWD(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % June 2022
 
 # NAME
 
