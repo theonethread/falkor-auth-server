@@ -55,8 +55,7 @@ const rootLogger = logFactory(
     destination
 );
 
-// TODO: `cluster.isPrimary` in v16
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
     import("./process/manager.js").then((m) => m.default(config, rootLogger));
 } else {
     // NOTE: using `await` broke IPC here
