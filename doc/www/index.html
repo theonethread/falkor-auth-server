@@ -56,6 +56,7 @@
         if (redirectUrl) {
           const parsed = new URL(redirectUrl, location.origin);
           if (/^([^.]*\.)?boredom\.cloud/.test(parsed.hostname)) {
+            enableUi("Redirecting..."); // NOTE: have UI enabled when navigating back in the browser
             parsed.protocol = "https:";
             document.location = parsed.href;
           }
