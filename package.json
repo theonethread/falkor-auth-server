@@ -70,20 +70,20 @@
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "18.0.4",
+    "@types/node": "18.0.6",
     "@types/minimist": "1.2.2",
     "@types/shelljs": "0.8.11",
     "dotenv": "16.0.1",
     "rimraf": "3.0.2",
     "yaml": "2.1.1",
     "prettier": "2.7.1",
-    "cspell": "6.2.3",
+    "cspell": "6.3.0",
     "@falkor/falkor-bundler": "1.2.1"
   },
   "dependencies": {
     "minimist": "1.2.6",
     "shelljs": "0.8.5",
-    "pino": "8.1.0",
+    "pino": "8.2.0",
     "fastify": "4.2.1",
     "fastify-cookie": "5.7.0",
     "mongodb": "4.8.0"
