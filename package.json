@@ -70,10 +70,10 @@
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "18.7.13",
+    "@types/node": "18.7.15",
     "@types/minimist": "1.2.2",
     "@types/shelljs": "0.8.11",
-    "dotenv": "16.0.1",
+    "dotenv": "16.0.2",
     "rimraf": "3.0.2",
     "yaml": "2.1.1",
     "prettier": "2.7.1",
@@ -83,9 +83,9 @@
   "dependencies": {
     "minimist": "1.2.6",
     "shelljs": "0.8.5",
-    "pino": "8.4.2",
+    "pino": "8.5.0",
     "fastify": "4.5.3",
     "fastify-cookie": "5.7.0",
-    "mongodb": "4.9.0"
+    "mongodb": "4.9.1"
   }
 }
