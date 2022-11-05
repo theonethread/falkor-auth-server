@@ -60,6 +60,7 @@
     "node": ">=16",
     "npm": ">=8"
   },
+  "engineStrict": true,
   "scripts": {
     "debug": "rimraf .dist/**/* && falkor-bundler --debug --context \"#LOCAL #UPDATE_PWD\" --input src/index.js && falkor-bundler --debug --input src/passwd.js && falkor-bundler --debug --input src/util/crypto.js --out .dist/util && falkor-bundler --debug --input src/cli/version.js --out .dist/cli",
     "release": "rimraf .dist/**/* && falkor-bundler --release --input src/index.js && falkor-bundler --release --input src/passwd.js && falkor-bundler --release --input src/util/crypto.js --out .dist/util && falkor-bundler --release --input src/cli/version.js --out .dist/cli",
