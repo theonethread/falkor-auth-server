@@ -71,21 +71,21 @@
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "18.15.3",
+    "@types/node": "18.15.10",
     "@types/minimist": "1.2.2",
     "@types/shelljs": "0.8.11",
     "dotenv": "16.0.3",
-    "rimraf": "4.4.0",
+    "rimraf": "4.4.1",
     "yaml": "2.2.1",
-    "prettier": "2.8.4",
-    "cspell": "6.29.3",
+    "prettier": "2.8.7",
+    "cspell": "6.31.1",
     "@falkor/falkor-bundler": "1.2.3"
   },
   "dependencies": {
     "minimist": "1.2.8",
     "shelljs": "0.8.5",
     "pino": "8.11.0",
-    "fastify": "4.14.1",
+    "fastify": "4.15.0",
     "fastify-cookie": "5.7.0",
     "mongodb": "5.1.0"
   }
