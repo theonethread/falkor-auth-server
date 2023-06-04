@@ -9,7 +9,7 @@ export default (fileUrl, short = false) => {
     console.log(`
 [Falkor Authentication Passwd Generator]
 version ${getOwnVersion(fileUrl)}
-(C)2020-2022 Barnabas Bucsy - All rights reserved.
+(C)2020-2023 Barnabas Bucsy - All rights reserved.
 
 Falkor authentication password hash generator - part of the Falkor Framework
 

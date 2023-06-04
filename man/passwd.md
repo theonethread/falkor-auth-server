@@ -1,4 +1,4 @@
-% FALKOR-AUTH-PASSWD(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % June 2022
+% FALKOR-AUTH-PASSWD(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % June 2023
 
 # NAME
 
@@ -18,18 +18,18 @@ The **falkor-auth-passwd** project is a standalone npm command-line application 
 
 # OPTIONS
 
-`-v`, `--version`  
+`-v`, `--version`
 : Show version and exit
 
-`-h`, `--help`  
+`-h`, `--help`
 : Show help and exit
 
-`-s`, `--secret`  
+`-s`, `--secret`
 : 32 characters long secret for token and password encryption
 
-`-p`, `--password`  
+`-p`, `--password`
 : Password to create encrypted hash for
 
 # COPYRIGHT
 
-(C)2020-2022 Barnabas Bucsy - All rights reserved.
+(C)2020-2023 Barnabas Bucsy - All rights reserved.

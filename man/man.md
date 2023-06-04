@@ -1,4 +1,4 @@
-% FALKOR-AUTH-SERVER(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % June 2022
+% FALKOR-AUTH-SERVER(1) The Falkor Framework **1.0.0** | **Falkor** General Commands Manual % Barnabas Bucsy % June 2023
 
 # NAME
 
@@ -21,51 +21,51 @@ The **falkor-auth-server** project is a standalone npm command-line application 
 
 # OPTIONS
 
-`-v`, `--version`  
+`-v`, `--version`
 : Show version and exit
 
-`-h`, `--help`  
+`-h`, `--help`
 : Show help and exit
 
-`-i <id>`, `--id <id>`  
+`-i <id>`, `--id <id>`
 : ID of server (default: **falkor-auth**)
 
-`-p <port>`, `--port <port>`  
+`-p <port>`, `--port <port>`
 : Port of server (default: **9999**)
 
-`-d <domain>`, `--domain <domain>`  
+`-d <domain>`, `--domain <domain>`
 : Domain of the cookies to set
 
-`-H <host>`, `--host <host>`  
+`-H <host>`, `--host <host>`
 : Host of the server (default: **0.0.0.0**)
 
-`-c <cookie>`, `--cookie <cookie>`  
+`-c <cookie>`, `--cookie <cookie>`
 : Cookie name (default: **@falkor_token**)
 
-`-t <ttl>`, `--ttl <ttl>`  
+`-t <ttl>`, `--ttl <ttl>`
 : Cookie TTL (default: **14400**)
 
-`-s <secret>`, `--secret <secret>`  
+`-s <secret>`, `--secret <secret>`
 : 32 characters long secret for token and password encryption
 
-`-u <user>`, `--user <user>`  
+`-u <user>`, `--user <user>`
 : User response header name (default: **X-Falkor-User**)
 
-`-r <role>`, `--role <role>`  
+`-r <role>`, `--role <role>`
 : Role response header name (default: **X-Falkor-Role**)
 
-`-D <db>`, `--db <db>`  
+`-D <db>`, `--db <db>`
 : User database address ("mongodb://" or "mongodb+srv://" address)
 
-`-S <stamp>`, `--stamp <stamp>`  
+`-S <stamp>`, `--stamp <stamp>`
 : Add timestamp to logs (default: **true**)
 
-`-l <level>`, `--level <level>`  
+`-l <level>`, `--level <level>`
 : Log level (default: **debug**)
 
-`-f <file>`, `--file <file>`  
+`-f <file>`, `--file <file>`
 : Log file destination, if set logs will be dumped here
 
 # COPYRIGHT
 
-(C)2020-2022 Barnabas Bucsy - All rights reserved.
+(C)2020-2023 Barnabas Bucsy - All rights reserved.

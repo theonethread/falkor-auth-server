@@ -9,7 +9,7 @@ export default (fileUrl, short = false) => {
     console.log(`
 [Falkor Authentication Server]
 version ${getOwnVersion(fileUrl)}
-(C)2020-2022 Barnabas Bucsy - All rights reserved.
+(C)2020-2023 Barnabas Bucsy - All rights reserved.
 
 Falkor Nginx authentication preflight proxy server - part of the Falkor Framework
 
@@ -17,7 +17,7 @@ Usage:
     falkor-auth-server [(--id <id>)] [(--port <port>)] [(--domain <domain>)] [(--host <host>)] [(--cookie <cookie>)]
         [(--ttl <ttl>)] [(--secret <secret>)] [(--user <user>)] [(--role <role>)] [(--db <db>)] [(--stamp <stamp>)]
         [(--level <level>)] [(--file <file>)]
-    falkor-auth-server [(-i <id>)] [(-p <port>)] [(-d <domain>)] [(-H <host>)] [(-c <cookie>)][(-t <ttl>)] 
+    falkor-auth-server [(-i <id>)] [(-p <port>)] [(-d <domain>)] [(-H <host>)] [(-c <cookie>)][(-t <ttl>)]
         [(-s <secret>)] [(-u <user>)] [(-r <role>)] [(-D <db>)] [(-S <stamp>)] [(-l <level>)] [(-f <file>)]
     falkor-auth-server (-v | --version | -h | --help)
 
