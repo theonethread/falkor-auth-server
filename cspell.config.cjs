@@ -1,21 +1,9 @@
-{
-  "version": "0.2",
-  "language": "en",
-  "words": [
-    "falkor",
-    "Bucsy",
+/** @type { import("cspell").CSpellSettings } */
+const baseConfig = require("@falkor/falkor-cspell-config");
+baseConfig.words.push(
     "fastify",
     "pino",
-    "pandoc",
-    "theonethread",
     "unencrypted",
-    "hetzner",
-    "npmjs",
-    "codeql",
-    "snyk",
-    "prettierrc",
-    "loglevel",
-    "parens",
     "referer",
     "sendfile",
     "nopush",
@@ -28,5 +16,5 @@
     "fullchain",
     "privkey",
     "webserver"
-  ]
-}
+);
+module.exports = baseConfig;
