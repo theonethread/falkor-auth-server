@@ -15,6 +15,7 @@ baseConfig.words.push(
     "letsencrypt",
     "fullchain",
     "privkey",
-    "webserver"
+    "webserver",
+    "hetzner"
 );
 module.exports = baseConfig;
