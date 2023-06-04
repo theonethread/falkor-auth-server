@@ -21,50 +21,35 @@ The **falkor-auth-server** project is a standalone npm command-line application 
 
 # OPTIONS
 
-`-v`, `--version`
-: Show version and exit
+`-v`, `--version` : Show version and exit
 
-`-h`, `--help`
-: Show help and exit
+`-h`, `--help` : Show help and exit
 
-`-i <id>`, `--id <id>`
-: ID of server (default: **falkor-auth**)
+`-i <id>`, `--id <id>` : ID of server (default: **falkor-auth**)
 
-`-p <port>`, `--port <port>`
-: Port of server (default: **9999**)
+`-p <port>`, `--port <port>` : Port of server (default: **9999**)
 
-`-d <domain>`, `--domain <domain>`
-: Domain of the cookies to set
+`-d <domain>`, `--domain <domain>` : Domain of the cookies to set
 
-`-H <host>`, `--host <host>`
-: Host of the server (default: **0.0.0.0**)
+`-H <host>`, `--host <host>` : Host of the server (default: **0.0.0.0**)
 
-`-c <cookie>`, `--cookie <cookie>`
-: Cookie name (default: **@falkor_token**)
+`-c <cookie>`, `--cookie <cookie>` : Cookie name (default: **@falkor_token**)
 
-`-t <ttl>`, `--ttl <ttl>`
-: Cookie TTL (default: **14400**)
+`-t <ttl>`, `--ttl <ttl>` : Cookie TTL (default: **14400**)
 
-`-s <secret>`, `--secret <secret>`
-: 32 characters long secret for token and password encryption
+`-s <secret>`, `--secret <secret>` : 32 characters long secret for token and password encryption
 
-`-u <user>`, `--user <user>`
-: User response header name (default: **X-Falkor-User**)
+`-u <user>`, `--user <user>` : User response header name (default: **X-Falkor-User**)
 
-`-r <role>`, `--role <role>`
-: Role response header name (default: **X-Falkor-Role**)
+`-r <role>`, `--role <role>` : Role response header name (default: **X-Falkor-Role**)
 
-`-D <db>`, `--db <db>`
-: User database address ("mongodb://" or "mongodb+srv://" address)
+`-D <db>`, `--db <db>` : User database address ("mongodb://" or "mongodb+srv://" address)
 
-`-S <stamp>`, `--stamp <stamp>`
-: Add timestamp to logs (default: **true**)
+`-S <stamp>`, `--stamp <stamp>` : Add timestamp to logs (default: **true**)
 
-`-l <level>`, `--level <level>`
-: Log level (default: **debug**)
+`-l <level>`, `--level <level>` : Log level (default: **debug**)
 
-`-f <file>`, `--file <file>`
-: Log file destination, if set logs will be dumped here
+`-f <file>`, `--file <file>` : Log file destination, if set logs will be dumped here
 
 # COPYRIGHT
 

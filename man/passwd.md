@@ -18,17 +18,13 @@ The **falkor-auth-passwd** project is a standalone npm command-line application 
 
 # OPTIONS
 
-`-v`, `--version`
-: Show version and exit
+`-v`, `--version` : Show version and exit
 
-`-h`, `--help`
-: Show help and exit
+`-h`, `--help` : Show help and exit
 
-`-s`, `--secret`
-: 32 characters long secret for token and password encryption
+`-s`, `--secret` : 32 characters long secret for token and password encryption
 
-`-p`, `--password`
-: Password to create encrypted hash for
+`-p`, `--password` : Password to create encrypted hash for
 
 # COPYRIGHT
 
