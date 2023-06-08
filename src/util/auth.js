@@ -57,7 +57,7 @@ export default async (config, rootLogger) => {
         }
         //#endif
         if (valid) {
-            const joinedRoles = u.roles.join(roleJoiner);
+            const joinedRoles = u.roles?.join(roleJoiner) || "";
             return {
                 user,
                 role: joinedRoles,

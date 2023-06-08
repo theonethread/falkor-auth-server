@@ -1,5 +1,5 @@
 import serverFactory from "fastify";
-import serverCookiePlugin from "fastify-cookie";
+import serverCookiePlugin from "@fastify/cookie";
 
 import routerFactory from "../route/router.js";
 
