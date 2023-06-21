@@ -71,10 +71,10 @@
     "passwd": "node .dist/passwd.js"
   },
   "devDependencies": {
-    "@types/node": "20.2.5",
+    "@types/node": "20.3.1",
     "@types/minimist": "1.2.2",
     "@types/shelljs": "0.8.12",
-    "dotenv": "16.1.4",
+    "dotenv": "16.3.1",
     "rimraf": "5.0.1",
     "yaml": "2.3.1",
     "@falkor/falkor-cspell-config": "0.0.1",
@@ -85,7 +85,7 @@
     "minimist": "1.2.8",
     "shelljs": "0.8.5",
     "pino": "8.14.1",
-    "fastify": "4.17.0",
+    "fastify": "4.18.0",
     "@fastify/cookie": "8.3.0",
     "mongodb": "5.6.0"
   }
